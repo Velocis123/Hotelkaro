@@ -81,11 +81,13 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.MyViewHolder
         @Override
         public void onClick(View v) {
             final OffersModel.Bus bus = listBusOffer.get(getAdapterPosition());
-            Intent i = new Intent(mContext, Search.class);
+
+
+         /*   Intent i = new Intent(mContext, Search.class);
 //            i.putExtra("offercode",bus.getOffercode());
 //            i.putExtra("offerprice",bus.getOff_price());
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            mContext.startActivity(i);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);*/
+           // mContext.startActivity(i);
         }
     }
 }

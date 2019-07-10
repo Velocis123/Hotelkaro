@@ -98,9 +98,10 @@ sb = new StringBuilder();
         img_search = findViewById(R.id.img_search);
         img_back= findViewById(R.id.img_back);
         flag=super.getIntent().getExtras().getString("flag");
-cities_main=(Cities_Main) super.getIntent().getExtras().get("id");
+
         if(flag.equals("c"))
         {
+            cities_main=(Cities_Main) super.getIntent().getExtras().get("id");
 
          //show layout
 //            if (edt_searchbox.requestFocus() == true){
@@ -138,7 +139,7 @@ edt_searchbox.setOnClickListener(new View.OnClickListener() {
 
                 Intent intent = new Intent(CityLocation.this,Search.class);
                 intent.putExtra("SEARCH_CONTENT",get_search);
-intent.putExtra("id",cities_main.getId());
+               // intent.putExtra("id",cities_main.getId());
                 startActivity(intent);
 
 

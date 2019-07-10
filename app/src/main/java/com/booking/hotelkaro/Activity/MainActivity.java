@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     List<Cities> cities = new ArrayList<>();
     List<Amenities> amenities = new ArrayList<>();
     EditText search;
-LinearLayout map;
+    LinearLayout map;
     OfferAdapter offerAdapter;
     public static ArrayList<OffersModel.Bus> busList;
     RecyclerView recyclerOffer;
@@ -79,6 +79,7 @@ LinearLayout map;
 
                 Intent intent=new Intent(MainActivity.this, CityLocation.class);
                 intent.putExtra("flag","s");
+
                 startActivity(intent);
 
 
@@ -93,6 +94,7 @@ map.setOnClickListener(new View.OnClickListener() {
 
 Intent intent = new Intent(MainActivity.this,CityLocation.class);
 intent.putExtra("flag","map");
+
 startActivity(intent);
 
 

@@ -67,8 +67,9 @@ EditText edt_searchbar;
         rel3 = findViewById(R.id.rel3);
         txt_checkin = findViewById(R.id.date_checkin);
         txt_checkout = findViewById(R.id.date_checkout);
-id = super.getIntent().getExtras().getString("id");
-edt_searchbar = findViewById(R.id.search);
+        recyclerView = findViewById(R.id.recycle);
+        id = super.getIntent().getExtras().getString("id");
+        edt_searchbar = findViewById(R.id.search);
         rel3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +107,7 @@ edt_searchbar = findViewById(R.id.search);
 
         get_amenities();
       //  get_hotels();
-getCity_hotels();
+    getCity_hotels();
 
     }
 
@@ -126,7 +127,7 @@ getCity_hotels();
 
                 List<Hotel_list> list=response.body();
 
-set_cities_adapter(list);
+               set_cities_adapter(list);
                 Toast.makeText(Search.this,"SUCCESS",Toast.LENGTH_LONG).show();
 
 
