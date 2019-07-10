@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/img_filter"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:padding="@dimen/_10sdp"
+                android:backgroundTint="@color/colorWhite"
+                app:srcCompat="@drawable/filter_white_24dp" />
+
+            <LinearLayout
+                android:layout_width="@dimen/_190sdp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/search"
+                style="@style/edt_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/colorWhite"
+                android:layout_toRightOf="@+id/img_filter"
+                android:drawableStart="@drawable/search_white_24dp"/>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="@color/colorWhite"/>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/location"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:padding="@dimen/_10sdp"
+                app:srcCompat="@drawable/location_white_24dp" />
+
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:padding="@dimen/_10sdp"
+                app:srcCompat="@drawable/person_white_24dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

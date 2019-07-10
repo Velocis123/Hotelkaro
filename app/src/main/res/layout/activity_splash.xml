@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/hotel_wall"
+    tools:context=".Activity.Splash">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradiant_splash">
+    <!-- <LinearLayout android:layout_centerVertical="true" android:layout_width="match_parent" android:layout_height="@dimen/_80sdp" android:background="@color/colorPrimary" android:padding="@dimen/_10sdp" android:layout_marginTop="@dimen/_30sdp" android:layout_marginBottom="@dimen/_30sdp" > <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/hotel" android:layout_centerVertical="true" /> </LinearLayout> -->
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/iconlayout"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:cardCornerRadius="@dimen/_25sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_60sdp">
+
+        <ImageView
+            android:id="@+id/iconimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/h1" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iconlayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:fontFamily="@font/avenirltstd_light"
+        android:text="HotelKaro"
+        android:textColor="#000000"
+        android:textSize="@dimen/_20sdp"/>
+
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:src="@drawable/splash" />
+
+    <ProgressBar
+        android:id="@+id/pr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:indeterminate="true"
+        android:theme="@style/RedAccent" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_29sdp"
+        android:textStyle="bold"
+        android:fontFamily="@font/avenirltstd_light"
+        android:text="Smart Hotel Booking"
+        android:textColor="#000000"
+        android:textSize="@dimen/_13sdp" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

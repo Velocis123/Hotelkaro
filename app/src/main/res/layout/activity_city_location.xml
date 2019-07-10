@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CityLocation">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_header"
+        app:cardUseCompatPadding="false"
+        app:cardCornerRadius="0dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rl_top"
+        android:layout_height="50dp">
+
+
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:padding="@dimen/_8sdp"
+                android:backgroundTint="@color/colorWhite"
+                app:srcCompat="@drawable/ic_back_arrow" />
+
+
+        <EditText
+            android:id="@+id/edt_searchtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:text="Where in Delhi?"
+            android:textColor="@color/colorblack"
+            android:textSize="@dimen/_15sdp"
+            android:layout_centerVertical="true"
+
+            android:textStyle="bold"
+            android:fontFamily="@font/avenirltstd_light"
+            android:layout_marginEnd="@dimen/_40sdp"/>
+
+
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/_8sdp"
+                android:id="@+id/img_search"
+                app:srcCompat="@drawable/search_black_24dp" />
+
+
+    </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/rl_top"
+                android:id="@+id/view_top"
+                android:background="#D8D6D6"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@+id/view_top"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Today"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12:00 PM"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:background="#D8D6D6"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IN"
+                    android:background="#D8D6D6"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:textColor="@color/colorblack"
+                    android:textSize="@dimen/_10sdp"
+                    android:gravity="center"/>
+
+
+            </FrameLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tomorrow"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11:00 AM"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:background="#D8D6D6"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1 Room"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1 Guest"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/card_header">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        android:id="@+id/card_alldelhi"
+        app:cardElevation="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardUseCompatPadding="false">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All of Delhi"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/_12sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:padding="@dimen/_8sdp"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/colorWhite"
+                app:srcCompat="@drawable/arrow_right_black_24dp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        android:id="@+id/card_resent"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="false"
+        android:layout_below="@+id/card_alldelhi">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recent Search"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/_15sdp"
+                android:padding="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:id="@+id/tv_resent"
+                android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_resent"
+                android:orientation="vertical">
+
+
+
+
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rl_item">
+
+                        <ImageView
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:id="@+id/iv_recent"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/_2sdp"
+                            app:srcCompat="@drawable/hotel_recent_search"/>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/ll_detail"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/iv_recent">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dwarka, Delhi"
+                                android:textColor="@color/colorblack"
+                                android:textSize="@dimen/_12sdp"
+                                android:layout_centerVertical="true"
+                                android:gravity="center"
+                                android:fontFamily="@font/avenirltstd_light"/>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:layout_height="wrap_content">
+
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Today -"
+                                    android:textColor="@color/colorblack"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tomorrow"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:textColor="@color/colorblack"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorGrey"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_2sdp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1 Guest"
+                                    android:textColor="@color/colorblack"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/rl_item"
+                        android:background="@color/colorGrey"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"/>
+
+
+                </RelativeLayout>
+
+
+
+
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rl_item1">
+
+                        <ImageView
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:id="@+id/iv_recent1"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/_2sdp"
+                            app:srcCompat="@drawable/hotel_recent_search"/>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/ll_detail1"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/iv_recent1">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dwarka, Delhi"
+                                android:textColor="@color/colorblack"
+                                android:textSize="@dimen/_12sdp"
+                                android:layout_centerVertical="true"
+                                android:gravity="center"
+                                android:fontFamily="@font/avenirltstd_light"/>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:layout_height="wrap_content">
+
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Today -"
+                                    android:textColor="@color/colorblack"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tomorrow"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:textColor="@color/colorblack"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorGrey"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_2sdp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1 Guest"
+                                    android:textColor="@color/colorblack"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/rl_item1"
+                        android:background="@color/colorGrey"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"/>
+
+
+                </RelativeLayout>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_below="@+id/tv_resent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:id="@+id/card_popular"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardUseCompatPadding="false"
+        android:layout_below="@+id/card_resent">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Popular Localities"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/_15sdp"
+                android:padding="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:id="@+id/tv_popular"
+                android:fontFamily="@font/avenirltstd_light"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popular">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dwarka"
+                    android:background="@drawable/popular_corners"
+                    android:textColor="@color/colorblack"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mahipalpur"
+                    android:background="@drawable/popular_corners"
+                    android:textColor="@color/colorblack"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+            </LinearLayout>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_below="@+id/tv_popular">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        android:id="@+id/card_all"
+        app:cardElevation="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardUseCompatPadding="false"
+        android:layout_below="@+id/card_popular">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Localities"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/_15sdp"
+                android:padding="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:id="@+id/tv_all"
+                android:fontFamily="@font/avenirltstd_light"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:orientation="vertical"
+                android:layout_below="@+id/tv_all">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dwarka, Delhi"
+                    android:textColor="@color/colorblack"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dwarka, Delhi"
+                    android:textColor="@color/colorblack"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dwarka, Delhi"
+                    android:textColor="@color/colorblack"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dwarka, Delhi"
+                    android:textColor="@color/colorblack"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:fontFamily="@font/avenirltstd_light"/>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_below="@+id/tv_all">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>
+
+
+
+

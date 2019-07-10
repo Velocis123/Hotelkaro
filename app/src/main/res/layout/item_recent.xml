@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_item">
+
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/iv_recent"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/_2sdp"
+        app:srcCompat="@drawable/hotel_recent_search"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_detail"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/iv_recent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dwarka, Delhi"
+            android:textColor="@color/colorblack"
+            android:textSize="@dimen/_12sdp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:fontFamily="@font/avenirltstd_light"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today -"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="center"
+                android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tomorrow"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="center"
+                android:fontFamily="@font/avenirltstd_light"/>
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGrey"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 Guest"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/_12sdp"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:fontFamily="@font/avenirltstd_light"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rl_item"
+        android:background="@color/colorGrey"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+
+</RelativeLayout>

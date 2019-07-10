@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HotelDescription">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_45sdp"
+        android:scrollIndicators="none">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/len1"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_height="@dimen/_180sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:padding="@dimen/_5sdp"
+                    app:srcCompat="@drawable/back_24dp"/>
+
+
+                <ImageView
+                    android:id="@+id/img_hotel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_2sdp"
+                    app:srcCompat="@drawable/hotel_wall"
+                    android:scaleType="fitXY" />
+
+            </RelativeLayout>
+
+
+
+
+
+                <TextView
+                    android:id="@+id/txt_hotelname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/len1"
+                    android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/avenirltstd_light"
+                    android:gravity="center"
+                    android:text="Hotel Royal Paradies"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+
+            <RelativeLayout
+                android:id="@+id/rel1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_hotelname"
+                android:layout_marginTop="@dimen/_2sdp">
+
+                <ImageView
+                    android:id="@+id/img_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:scaleType="fitXY"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/place_24dp" />
+
+                <TextView
+                    android:id="@+id/txt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/img_map"
+                    android:fontFamily="@font/avenirltstd_light"
+                    android:gravity="center_vertical"
+                    android:text="Assotech Business Crestera Noida- 135" />
+
+                <!--<RatingBar
+                    android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_address"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/img_map"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:rating="4.0" />-->
+
+                <RatingBar
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    style="@style/MyRatingBarTwo"
+                    android:layout_toEndOf="@+id/img_map"
+                    android:layout_below="@+id/txt_address"
+                    android:rating="4"
+                    android:layout_gravity="center_vertical"
+                    android:progressTint="@color/colorPrimary"
+                    android:id="@+id/ratingBar"
+                    android:numStars="5" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/rel1"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey" />
+
+            </LinearLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/rel2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_below="@id/view1">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_amen_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"/>
+
+
+            </RelativeLayout>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rel3"
+                    android:layout_below="@+id/rel2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="@dimen/_2sdp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/len3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_payable"
+                                android:layout_width="0dp"
+                                android:layout_weight="2"
+                                android:padding="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:text="Amount Payable"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txt_amount_tariff"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:padding="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center"
+                                android:text="@string/price_placeholder"/>
+
+                            <TextView
+                                android:id="@+id/txt_amount_payable"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:padding="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center"
+                                android:text="@string/price_placeholder"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:layout_below="@+id/len3">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/txt_tariff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_5sdp"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center_vertical"
+                                android:text="Room Tariff"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/txt_calc_tariff_amount"
+                                android:layout_width="@dimen/_170sdp"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/_5sdp"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center_vertical"
+                                android:text="1600 x 1 Room x 1 Night"/>
+
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/txt_tariff_amount"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:textColor="#41B417"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center"
+                                android:text="@string/price_placeholder" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="@dimen/_2sdp"
+                    android:layout_below="@+id/rel3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <RelativeLayout
+                            android:id="@+id/len4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center_vertical"
+                                android:text="Booking for"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/txt_booker_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center"
+                                android:padding="@dimen/_5sdp"
+                                android:layout_alignParentEnd="true"
+                                android:text="Akash Gupta"
+                                android:textSize="@dimen/_15sdp"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_centerVertical="true"
+                                android:id="@+id/iv_pdf"
+                                app:srcCompat="@drawable/pdf_24dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@+id/iv_pdf"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:fontFamily="@font/avenirltstd_light"
+                                android:gravity="center"
+                                android:text="You can add or edit your GSTIN details after your booking confirmation" />
+
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_2sdp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true">
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:text="Book Now"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_18sdp"
+        android:id="@+id/btn_book_now"
+        android:fontFamily="@font/avenirltstd_light"
+        android:background="@null"/>
+
+
+    </RelativeLayout>
+
+
+   <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scroll"
+        android:layout_marginTop="-50dp">
+        <include layout="@layout/snippet_booknow_button" />
+    </RelativeLayout>-->
+
+</RelativeLayout>

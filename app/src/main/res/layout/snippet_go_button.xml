@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:text="GO"
+        android:fontFamily="@font/avenirltstd_light"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/white_rounded_button"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/colorWhite"
+
+
+android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        />
+
+
+
+
+</RelativeLayout>

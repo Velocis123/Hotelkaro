@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/_50sdp"
+
+      android:background="@color/colorPrimary"
+        >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+
+
+    <ImageView
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        app:srcCompat="@drawable/ic_back"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:id="@+id/img_back"
+        />
+
+<EditText
+    android:layout_width="@dimen/_200sdp"
+    android:layout_height="@dimen/_25sdp"
+    android:background="@drawable/edittext_corners"
+    android:layout_marginLeft="@dimen/_20sdp"
+    android:id="@+id/edt_get_search"
+    android:fontFamily="@font/avenirltstd_light"
+    android:paddingLeft="@dimen/_5sdp"
+
+
+    />
+<ImageView
+    android:layout_width="@dimen/_25sdp"
+    android:layout_height="@dimen/_25sdp"
+    android:layout_marginLeft="@dimen/_20sdp"
+    app:srcCompat="@drawable/ic_search"
+    android:id="@+id/img_search"
+    />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

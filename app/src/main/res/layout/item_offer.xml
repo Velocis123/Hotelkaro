@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_180sdp"
+    app:cardCornerRadius="@dimen/_2sdp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="@dimen/_1sdp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:id="@+id/img_offer_flight"
+            app:srcCompat="@drawable/hotel_img" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_3sdp"
+            android:id="@+id/tv_offer_code_flight"
+            android:fontFamily="@font/avenirltstd_light"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            android:text="Zakir Khan's Event"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:background="#88000000"
+            android:textColor="@color/colorWhite" />
+
+        <ImageView
+            android:id="@+id/icon_offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:visibility="gone"
+            android:layout_margin="3dp"/>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>
