@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.booking.hotelkaro.Model.Hotel;
+import com.booking.hotelkaro.Model.Hotel_list;
 import com.booking.hotelkaro.R;
 import com.booking.hotelkaro.Utils.OnHotelListener;
 
@@ -16,10 +17,10 @@ import java.util.List;
 
 public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdapter.MyViewHolder> {
     private Context mContext;
-    private List<Hotel> imageList;
+    private List<Hotel_list> imageList;
     private OnHotelListener listener;
 
-    public ImageRecyclerAdapter(Context mContext, List<Hotel> imageList, OnHotelListener listener) {
+    public ImageRecyclerAdapter(Context mContext, List<Hotel_list> imageList, OnHotelListener listener) {
         this.mContext = mContext;
         this.imageList = imageList;
         this.listener = listener;
@@ -37,9 +38,9 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        Hotel hotel = imageList.get(i);
+        Hotel_list hotel = imageList.get(i);
         myViewHolder.bind(imageList.get(i), listener);
-        myViewHolder.imageView.setImageResource(hotel.getImg_recycle().get(i));
+//        myViewHolder.imageView.setImageResource(hotel.getImg_recycle().get(i));
 
 
     }
@@ -61,7 +62,7 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
             imageView = itemView.findViewById(R.id.img_recycle);
         }
 
-        public void bind(final Hotel hotel, final OnHotelListener listener) {
+        public void bind(final Hotel_list hotel, final OnHotelListener listener) {
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.booking.hotelkaro.Adapter.Amenities_Search_Adapter;
 import com.booking.hotelkaro.Model.Amenities;
 import com.booking.hotelkaro.Model.Hotel;
+import com.booking.hotelkaro.Model.Hotel_list;
 import com.booking.hotelkaro.R;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class HotelDescription extends AppCompatActivity {
     RecyclerView recyclerView_des_amenities;
     TextView txt_tariffAmt, txt_hotel_name;
     ImageView img_hotel;
-    Hotel hotel;
+    Hotel_list hotel;
     RatingBar ratingBar;
 
     @Override
@@ -47,12 +48,12 @@ public class HotelDescription extends AppCompatActivity {
         img_hotel = findViewById(R.id.img_hotel);
         txt_tariffAmt.setText(R.string.price_placeholder+"800");
         txt_tariffAmt.setPaintFlags(txt_tariffAmt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        hotel = (Hotel) super.getIntent().getExtras().get("MODEL");
+        hotel = (Hotel_list) super.getIntent().getExtras().get("MODEL");
 
 
-        img_hotel.setImageResource(hotel.getImg_demo());
-        txt_hotel_name.setText(hotel.getHotel_name());
-        ratingBar.setRating(Float.parseFloat(hotel.getRatings()));
+//        img_hotel.setImageResource(hotel.getImg_demo());
+//        txt_hotel_name.setText(hotel.getHotel_name());
+//        ratingBar.setRating(Float.parseFloat(hotel.getRatings()));
 
         get_amenities();
 

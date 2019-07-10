@@ -118,7 +118,7 @@ public class CityAdapter extends   RecyclerView.Adapter<CityAdapter.MyViewHolder
 
                 Intent intent=new Intent(mContext, CityLocation.class);
                 intent.putExtra("flag","c");
-                intent.putExtra("id",city.getId());
+                intent.putExtra("id",city);
 
                 mContext.startActivity(intent);
             }

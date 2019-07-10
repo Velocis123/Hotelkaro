@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.booking.hotelkaro.Activity.HotelDescription;
 import com.booking.hotelkaro.Model.Amenities;
 import com.booking.hotelkaro.Model.Hotel;
+import com.booking.hotelkaro.Model.Hotel_list;
 import com.booking.hotelkaro.R;
 import com.booking.hotelkaro.Utils.OnHotelListener;
 
@@ -24,11 +25,11 @@ import java.util.List;
 public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Hotel> hotelList;
+    private List<Hotel_list> hotelList;
     private List<Amenities> amenities;
     private OnHotelListener listener;
 
-    public HotelSearchAdapter(Context mContext, List<Hotel> hotelList, List<Amenities> amenities, OnHotelListener listener) {
+    public HotelSearchAdapter(Context mContext, List<Hotel_list> hotelList, List<Amenities> amenities, OnHotelListener listener) {
         this.mContext = mContext;
         this.hotelList = hotelList;
         this.amenities = amenities;
@@ -55,19 +56,19 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
         myViewHolder.bind(hotelList.get(i), listener);
 
 
-        Hotel hotel = hotelList.get(i);
+        Hotel_list hotel = hotelList.get(i);
 
-        myViewHolder.hotel_name.setText(hotel.getHotel_name());
-        myViewHolder.distance.setText(hotel.getDistance() + " km from centre");
-        myViewHolder.reviews.setText(hotel.getReviews() + " reviews");
-        myViewHolder.price.setText("$ " + hotel.getPrice() + "/-");
-        myViewHolder.remarks.setText(hotel.getRemarks());
+        myViewHolder.hotel_name.setText(hotel.getName());
+        myViewHolder.distance.setText( " km from centre");
+        myViewHolder.reviews.setText( " reviews");
+        myViewHolder.price.setText("$ " +  "/-");
+        myViewHolder.remarks.setText("");
 //UniversalImageLoader.setImage(hotel.getImg(),myViewHolder.imageView,null,"https://");
 //        myViewHolder.imageView.setImageResource(hotel.getImg_demo());
-        myViewHolder.ratingBar.setRating(Float.parseFloat(hotel.getRatings()));
+        myViewHolder.ratingBar.setRating(2.5f);
         ImageRecyclerAdapter imageRecyclerAdapter = new ImageRecyclerAdapter(mContext, hotelList, new OnHotelListener() {
             @Override
-            public void onItemClick(Hotel item) {
+            public void onItemClick(Hotel_list item) {
                 Intent intent = new Intent(mContext, HotelDescription.class);
                 intent.putExtra("MODEL", item);
                 mContext.startActivity(intent);
@@ -115,7 +116,7 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
 
         }
 
-        public void bind(final Hotel hotel, final OnHotelListener listener) {
+        public void bind(final Hotel_list hotel, final OnHotelListener listener) {
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

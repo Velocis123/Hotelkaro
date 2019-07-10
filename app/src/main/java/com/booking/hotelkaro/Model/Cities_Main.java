@@ -2,7 +2,9 @@ package com.booking.hotelkaro.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Cities_Main {
+import java.io.Serializable;
+
+public class Cities_Main implements Serializable {
 
     private int city_demo;
 

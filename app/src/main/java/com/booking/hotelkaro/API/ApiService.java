@@ -2,6 +2,7 @@ package com.booking.hotelkaro.API;
 
 
 import com.booking.hotelkaro.Model.Cities_Main;
+import com.booking.hotelkaro.Model.Hotel_list;
 
 import java.util.List;
 
@@ -14,12 +15,20 @@ public interface ApiService {
 
 
     @FormUrlEncoded
-    @POST("api_mobile/popularcity")
+    @POST("Api_mobile/popularcity")
     Call<List<Cities_Main>> getcities(
             @Field("accesskey") String accesskey
     );
 
+@FormUrlEncoded
+    @POST("Api_mobile/hotelbycitylocality")
+    Call<List<Hotel_list>> getHotelList(
+  @Field("accesskey")    String accesskey,
+  @Field("city_id") String city_id,
+  @Field("locality_id") String locality_id
 
+
+);
 //
 //@POST("registrationapi.php?apical=login")
 //

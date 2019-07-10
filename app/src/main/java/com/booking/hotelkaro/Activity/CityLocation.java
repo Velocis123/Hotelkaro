@@ -68,6 +68,8 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
     private long UPDATE_INTERVAL = 2 * 1000;  /* 10 secs */
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
 
+    Cities_Main cities_main;
+
     private LocationManager locationManager;
 private String state;
 private String locality;
@@ -96,14 +98,15 @@ sb = new StringBuilder();
         img_search = findViewById(R.id.img_search);
         img_back= findViewById(R.id.img_back);
         flag=super.getIntent().getExtras().getString("flag");
-id=super.getIntent().getExtras().getString("id");
+cities_main=(Cities_Main) super.getIntent().getExtras().get("id");
         if(flag.equals("c"))
         {
 
          //show layout
 //            if (edt_searchbox.requestFocus() == true){
 //
-//                edt_searchbox.setText("");
+              edt_searchbox.setText("Where is " + cities_main.getHomecity_name() + "?");
+
 //
 //
 //            }
@@ -135,7 +138,7 @@ edt_searchbox.setOnClickListener(new View.OnClickListener() {
 
                 Intent intent = new Intent(CityLocation.this,Search.class);
                 intent.putExtra("SEARCH_CONTENT",get_search);
-
+intent.putExtra("id",cities_main.getId());
                 startActivity(intent);
 
 
@@ -149,38 +152,6 @@ img_back.setOnClickListener(new View.OnClickListener() {
         onBackPressed();
     }
 });
-
-    }
-    private void getCity_hotels(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Api.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        ApiService service = retrofit.create(ApiService.class);
-
-        Call<List<Cities_Main>> call = service.getcities("hpt@2019");
-
-        call.enqueue(new Callback<List<Cities_Main>>() {
-            @Override
-            public void onResponse(Call<List<Cities_Main>> call, retrofit2.Response<List<Cities_Main>> response) {
-                //arrayList.add(response);
-
-                List<Cities_Main> list=response.body();
-//edt_searchbox.setText("Where is " + list.get);
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Cities_Main>> call, Throwable t) {
-
-            }
-        });
-
-
-
-
-
-
 
     }
 
