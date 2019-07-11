@@ -4,8 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +23,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +33,7 @@ import com.booking.hotelkaro.API.Api;
 import com.booking.hotelkaro.API.ApiService;
 import com.booking.hotelkaro.Model.Cities_Main;
 import com.booking.hotelkaro.R;
+import com.booking.hotelkaro.Utils.Datepickerfragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -44,8 +48,12 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,7 +62,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CityLocation extends AppCompatActivity implements  GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        com.google.android.gms.location.LocationListener {
+        com.google.android.gms.location.LocationListener , View.OnClickListener, DatePickerDialog.OnDateSetListener {
 
     private static final String TAG = "MainActivity";
     private TextView mLatitudeTextView;
@@ -62,23 +70,24 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
     private GoogleApiClient mGoogleApiClient;
     private Location mLocation;
     private LocationManager mLocationManager;
-
     private LocationRequest mLocationRequest;
     private com.google.android.gms.location.LocationListener listener;
     private long UPDATE_INTERVAL = 2 * 1000;  /* 10 secs */
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
-
     Cities_Main cities_main;
-
     private LocationManager locationManager;
-private String state;
-private String locality;
+    private String state;
+    private String locality;
     String flag;
     StringBuilder sb;
-String result;
-EditText edt_searchbox;
-ImageView img_search,img_back;
-String id ;
+    String result;
+    EditText edt_searchbox;
+    ImageView img_search,img_back;
+    String id ;
+    TextView in,indate,out,outdate,indays,room,roomval;
+    static int DATE_DIALOG = 0;
+    public static final String DATE_FORMAT = "d/M/yyyy";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +99,7 @@ String id ;
                 .build();
 
         mLocationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
-sb = new StringBuilder();
+        sb = new StringBuilder();
         checkLocation(); //check whether location service is enable or not in your  phone
 
 
@@ -98,6 +107,20 @@ sb = new StringBuilder();
         img_search = findViewById(R.id.img_search);
         img_back= findViewById(R.id.img_back);
         flag=super.getIntent().getExtras().getString("flag");
+
+        in=findViewById(R.id.in);
+        indate=findViewById(R.id.indate);
+        out=findViewById(R.id.out);
+        outdate=findViewById(R.id.outdate);
+        indays=findViewById(R.id.indays);
+        room=findViewById(R.id.room);
+        roomval=findViewById(R.id.roomval);
+
+
+        in.setOnClickListener(this);
+        out.setOnClickListener(this);
+        room.setOnClickListener(this);
+
 
         if(flag.equals("c"))
         {
@@ -118,19 +141,19 @@ sb = new StringBuilder();
             edt_searchbox.requestFocus();
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
             //open key here and set focus
-edt_searchbox.setText("");
+            edt_searchbox.setText("");
 
 
         }
 
-edt_searchbox.setOnClickListener(new View.OnClickListener() {
+            edt_searchbox.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         edt_searchbox.setText("");
     }
 });
 
-        img_search.setOnClickListener(new View.OnClickListener() {
+            img_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String get_search;
@@ -147,7 +170,7 @@ edt_searchbox.setOnClickListener(new View.OnClickListener() {
 
             }
         });
-img_back.setOnClickListener(new View.OnClickListener() {
+            img_back.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         onBackPressed();
@@ -312,5 +335,89 @@ if (flag.equals("map")){
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.in:
+                DATE_DIALOG = 1;
+                DialogFragment datePicker = new Datepickerfragment();
+                datePicker.show(getSupportFragmentManager(), "date picker checkin");
+                break;
+
+            case R.id.out:
+               DATE_DIALOG = 2;
+                DialogFragment datePicker1 = new Datepickerfragment();
+                datePicker1.show(getSupportFragmentManager(), "date picker checkout");
+                break;
+
+
+            case R.id.room:
+                startActivity(new Intent(CityLocation.this, NoOfPerson.class));
+                break;
+        }
+
+
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+        if (DATE_DIALOG == 1) {
+            in.setText((dayOfMonth) + "/" +
+                    (month + 1) + "/" +
+                    (year));
+        } else if (DATE_DIALOG == 2) {
+            out.setText((dayOfMonth) + "/" +
+                    (month + 1) + "/" +
+                    (year));
+        }
+
+        long days= getDaysBetweenDates(in.getText().toString(),out.getText().toString());
+        if(days<0)
+        {
+
+            in.setText("Today");
+            out.setText("Tomorrow");
+            Toast.makeText(this,"Invalid Date",Toast.LENGTH_LONG).show();
+
+        }else {
+            indays.setText("" + days+"N");
+        }
+
+    }
+
+    public static long getDaysBetweenDates(String start, String end) {
+
+         if(start.equals("Today"))
+         {
+             SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+             Date todayDate = new Date();
+           start= currentDate.format(todayDate);
+         }if(end.equals("Tomorrow"))
+        {
+            SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+            Date todayDate = new Date();
+            end = currentDate.format(todayDate);
+        }
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH);
+        Date startDate, endDate;
+        long numberOfDays = 0;
+        try {
+            startDate = dateFormat.parse(start);
+            endDate = dateFormat.parse(end);
+            numberOfDays = getUnitBetweenDates(startDate, endDate, TimeUnit.DAYS);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        return numberOfDays;
+    }
+    private static long getUnitBetweenDates(Date startDate, Date endDate, TimeUnit unit) {
+        long timeDiff = endDate.getTime() - startDate.getTime();
+        return unit.convert(timeDiff, TimeUnit.MILLISECONDS);
     }
 }

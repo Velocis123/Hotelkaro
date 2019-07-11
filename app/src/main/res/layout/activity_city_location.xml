@@ -86,6 +86,7 @@
 
 
                 <TextView
+                    android:id="@+id/in"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Today"
@@ -97,6 +98,7 @@
 
 
                 <TextView
+                    android:id="@+id/indate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="12:00 PM"
@@ -123,6 +125,7 @@
 
 
                 <TextView
+                    android:id="@+id/indays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="IN"
@@ -147,6 +150,7 @@
 
 
                 <TextView
+                    android:id="@+id/out"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Tomorrow"
@@ -158,6 +162,7 @@
 
 
                 <TextView
+                    android:id="@+id/outdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="11:00 AM"
@@ -186,6 +191,7 @@
 
 
                 <TextView
+                    android:id="@+id/room"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1 Room"
@@ -197,6 +203,7 @@
 
 
                 <TextView
+                    android:id="@+id/roomval"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1 Guest"

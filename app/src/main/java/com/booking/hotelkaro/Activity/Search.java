@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -35,9 +36,14 @@ import com.booking.hotelkaro.Utils.Datepickerfragment;
 import com.booking.hotelkaro.Utils.OnHotelListener;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,6 +62,8 @@ public class Search extends AppCompatActivity implements DatePickerDialog.OnDate
     static int DATE_DIALOG = 0;
     RelativeLayout rel1, rel2, rel3;
     List<Integer> integerList = new ArrayList<>();
+    ImageView img_back,location;
+    public static final String DATE_FORMAT = "d/M/yyyy";
 String id ;
 EditText edt_searchbar;
     @Override
@@ -65,11 +73,47 @@ EditText edt_searchbar;
         rel1 = findViewById(R.id.rel1);
         rel2 = findViewById(R.id.rel2);
         rel3 = findViewById(R.id.rel3);
-        txt_checkin = findViewById(R.id.date_checkin);
-        txt_checkout = findViewById(R.id.date_checkout);
+        txt_checkin = findViewById(R.id.txt_checkin);
+        txt_checkout = findViewById(R.id.txt_checkout);
         recyclerView = findViewById(R.id.recycle);
         id = super.getIntent().getExtras().getString("id");
         edt_searchbar = findViewById(R.id.search);
+        img_back=findViewById(R.id.img_back);
+        location=findViewById(R.id.location);
+
+
+
+       edt_searchbar.setOnTouchListener(new View.OnTouchListener() {
+           @Override
+           public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
+               Search.super.onBackPressed();
+               return false;
+           }
+       });
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //find current location
+
+                Intent intent = new Intent(Search.this,CityLocation.class);
+                intent.putExtra("flag","map");
+
+                startActivity(intent);
+            }
+        });
+
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Search.super.onBackPressed();
+            }
+        });
+
+
         rel3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +151,7 @@ EditText edt_searchbar;
 
         get_amenities();
       //  get_hotels();
-    getCity_hotels();
+        getCity_hotels();
 
     }
 
@@ -256,7 +300,50 @@ EditText edt_searchbar;
                     (month + 1) + "/" +
                     (year));
         }
+
+        long days= getDaysBetweenDates(txt_checkin.getText().toString(),txt_checkout.getText().toString());
+        if(days<0)
+        {
+
+            txt_checkin.setText("Today");
+            txt_checkout.setText("Tomorrow");
+            Toast.makeText(this,"Invalid Date",Toast.LENGTH_LONG).show();
+
+        }else {
+           // indays.setText("" + days+"N");
+        }
     }
 
+    public static long getDaysBetweenDates(String start, String end) {
 
+        if(start.equals("Today"))
+        {
+            SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+            Date todayDate = new Date();
+            start= currentDate.format(todayDate);
+        }if(end.equals("Tomorrow"))
+        {
+            SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+            Date todayDate = new Date();
+            end = currentDate.format(todayDate);
+        }
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH);
+        Date startDate, endDate;
+        long numberOfDays = 0;
+        try {
+            startDate = dateFormat.parse(start);
+            endDate = dateFormat.parse(end);
+            numberOfDays = getUnitBetweenDates(startDate, endDate, TimeUnit.DAYS);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        return numberOfDays;
+    }
+    private static long getUnitBetweenDates(Date startDate, Date endDate, TimeUnit unit) {
+        long timeDiff = endDate.getTime() - startDate.getTime();
+        return unit.convert(timeDiff, TimeUnit.MILLISECONDS);
+    }
 }

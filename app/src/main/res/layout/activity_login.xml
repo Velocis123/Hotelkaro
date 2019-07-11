@@ -70,7 +70,10 @@
                         android:textColorHint="#000000"
                         android:drawableStart="@drawable/phone_black_24dp"
                         android:fontFamily="@font/avenirltstd_light"
-                        android:hint="Enter your mobile number"/>
+                        android:hint="Enter your mobile number"
+                        android:textSize="@dimen/_12sdp"
+
+                        />
 
 
 
@@ -91,7 +94,7 @@
                         android:fontFamily="@font/avenirltstd_light"
                         android:gravity="center"
                         android:text="OTP will be sent to this number for verification"
-                        android:textSize="@dimen/_12sdp"/>
+                        android:textSize="@dimen/_11sdp"/>
 
 
                 <Button

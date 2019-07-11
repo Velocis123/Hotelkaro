@@ -59,10 +59,12 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/avenirltstd_light"
                         android:gravity="center"
-                        android:paddingLeft="-30dp"
+                       android:paddingLeft="@dimen/_2sdp"
                         android:textColor="#000000"
-                        android:text="0123456789"
-                        android:textSize="@dimen/_12sdp"/>
+                        android:text="8750921779"
+                        android:textSize="@dimen/_12sdp"
+                        android:textAlignment="textStart"
+                        />
 
 
                     <TextView
@@ -75,7 +77,7 @@
                         android:text="Change"
                         android:textStyle="bold"
                         android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/_13sdp"/>
+                        android:textSize="@dimen/_12sdp"/>
                 </LinearLayout>
 
 
@@ -108,7 +110,9 @@
                         android:textColorHint="#000000"
                         android:drawableStart="@drawable/name_24dp"
                         android:fontFamily="@font/avenirltstd_light"
-                        android:hint="Enter Your Full Name" />
+                        android:hint="Enter Your Full Name"
+                        android:textSize="@dimen/_12sdp"
+                        />
 
                     <View
                         android:layout_width="match_parent"
@@ -131,7 +135,9 @@
                         android:layout_marginRight="@dimen/_10sdp"
                         android:drawableStart="@drawable/otp_24dp"
                         android:fontFamily="@font/avenirltstd_light"
-                        android:hint="Enter OTP " />
+                        android:hint="Enter OTP "
+                        android:textSize="@dimen/_12sdp"
+                        />
 
 
 

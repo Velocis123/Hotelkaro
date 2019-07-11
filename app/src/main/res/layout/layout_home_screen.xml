@@ -13,7 +13,7 @@
             android:id="@+id/ll_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_80sdp"
-            android:background="@drawable/gradiant_splash"
+            android:background="@drawable/gradiant_top"
             android:orientation="vertical">
 
 

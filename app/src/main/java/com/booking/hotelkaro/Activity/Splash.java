@@ -52,10 +52,10 @@ public class Splash extends AppCompatActivity {
                     try {
 
 
-                        Thread.sleep(3000);
+                        Thread.sleep(6000);
 
                         startActivity(new Intent(Splash.this, Login.class));
-                        Splash.super.finish();
+                      //  Splash.super.finish();
 
                     } catch (Exception e) {
 
@@ -110,10 +110,10 @@ public class Splash extends AppCompatActivity {
                                 try {
 
 
-                                    Thread.sleep(3000);
+                                    Thread.sleep(6000);
 
                                     startActivity(new Intent(Splash.this, Login.class));
-                                    Splash.super.finish();
+                                    //Splash.super.finish();
 
                                 } catch (Exception e) {
 

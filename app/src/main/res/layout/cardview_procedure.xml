@@ -34,7 +34,7 @@
                     android:layout_below="@+id/img_checkin"
                     android:fontFamily="@font/avenirltstd_light"
                     android:gravity="center"
-                    android:text="Check IN"
+                    android:text="Today"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_8sdp" />
 
@@ -45,7 +45,7 @@
                     android:layout_below="@+id/txt_checkin"
                     android:fontFamily="@font/avenirltstd_light"
                     android:gravity="center"
-                    android:text="CheckIn Date"
+                    android:text="12:00 PM"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_8sdp" />
 
@@ -84,7 +84,7 @@
                     android:gravity="center"
                     android:layout_below="@+id/img_checkout"
                     android:fontFamily="@font/avenirltstd_light"
-                    android:text="Check Out"
+                    android:text="Tomorrow"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_8sdp" />
 
@@ -95,7 +95,7 @@
                     android:layout_below="@+id/txt_checkout"
                     android:gravity="center"
                     android:fontFamily="@font/avenirltstd_light"
-                    android:text="CheckOut Date"
+                    android:text="11:00 AM"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_8sdp" />
 
