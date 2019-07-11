@@ -21,12 +21,13 @@
         android:background="@drawable/edittext_corners"
         android:elevation="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_4sdp"
+        android:layout_margin="@dimen/_3sdp">
 
-        android:layout_margin="@dimen/_3sdp"
-
-
-
-        >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp">
 
         <ImageView
             android:id="@+id/img_cardv"
@@ -35,9 +36,22 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_10sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/banglore"
-            />
+            android:src="@drawable/banglore"/>
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_3sdp"
+                android:id="@+id/tv_offer_code_flight"
+                android:fontFamily="@font/avenirltstd_light"
+                android:layout_gravity="bottom"
+                android:gravity="center_vertical"
+                android:text="Zakir Khan's Event"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:background=""
+                android:textColor="@color/colorWhite" />-->
 
+        </FrameLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="80dp"

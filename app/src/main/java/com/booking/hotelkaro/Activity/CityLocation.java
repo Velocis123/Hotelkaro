@@ -161,7 +161,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
                 get_search = edt_searchbox.getText().toString();
 
                 Intent intent = new Intent(CityLocation.this,Search.class);
-                intent.putExtra("SEARCH_CONTENT",cities_main.getName());
+                intent.putExtra("SEARCH_CONTENT",get_search);
                // intent.putExtra("id",cities_main.getId());
                 startActivity(intent);
 

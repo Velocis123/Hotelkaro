@@ -150,7 +150,7 @@ EditText edt_searchbar;
         edt_searchbar.setText(value);
 
         get_amenities();
-      //  get_hotels();
+        // get_hotels();
         getCity_hotels();
 
     }

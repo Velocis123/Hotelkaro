@@ -36,12 +36,12 @@ public class Splash extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
         setContentView(R.layout.activity_splash);
-        requestPermission();
+       /* requestPermission();
         if (!checkPermission()) {
 
 
         }
-        else {
+        else {*/
 
             new Thread() {
 
@@ -66,7 +66,7 @@ public class Splash extends AppCompatActivity {
         }
 
 
-    }
+   // }
     private void requestPermission() {
 
         ActivityCompat.requestPermissions(this, new String[]{ ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
