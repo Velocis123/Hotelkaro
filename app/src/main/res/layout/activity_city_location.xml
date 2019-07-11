@@ -42,9 +42,8 @@
             android:layout_marginStart="@dimen/_40sdp"
             android:text="Where in Delhi?"
             android:textColor="@color/colorblack"
-            android:textSize="@dimen/_15sdp"
+            android:textSize="@dimen/_12sdp"
             android:layout_centerVertical="true"
-
             android:textStyle="bold"
             android:fontFamily="@font/avenirltstd_light"
             android:layout_marginEnd="@dimen/_40sdp"/>
@@ -236,7 +235,9 @@
         android:id="@+id/card_alldelhi"
         app:cardElevation="0dp"
         android:layout_marginTop="@dimen/_10sdp"
-        app:cardUseCompatPadding="false">
+        app:cardUseCompatPadding="false"
+
+        >
 
 
 
@@ -291,7 +292,7 @@
                 android:layout_height="wrap_content"
                 android:text="Recent Search"
                 android:textColor="@color/colorblack"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_12sdp"
                 android:padding="@dimen/_10sdp"
                 android:textStyle="bold"
                 android:id="@+id/tv_resent"
@@ -574,7 +575,7 @@
                 android:layout_height="wrap_content"
                 android:text="Popular Localities"
                 android:textColor="@color/colorblack"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_13sdp"
                 android:padding="@dimen/_10sdp"
                 android:textStyle="bold"
                 android:id="@+id/tv_popular"
@@ -654,7 +655,7 @@
                 android:layout_height="wrap_content"
                 android:text="All Localities"
                 android:textColor="@color/colorblack"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_12sdp"
                 android:padding="@dimen/_10sdp"
                 android:textStyle="bold"
                 android:id="@+id/tv_all"

@@ -306,7 +306,7 @@ cities_main();
 
                 List<Cities_Main> list=response.body();
                 set_cities_adapter(list);
-                Toast.makeText(MainActivity.this,"Success",Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this,"Success",Toast.LENGTH_LONG).show();
             }
 
             @Override

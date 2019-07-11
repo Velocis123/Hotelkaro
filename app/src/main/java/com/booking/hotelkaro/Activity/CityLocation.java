@@ -161,7 +161,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
                 get_search = edt_searchbox.getText().toString();
 
                 Intent intent = new Intent(CityLocation.this,Search.class);
-                intent.putExtra("SEARCH_CONTENT",get_search);
+                intent.putExtra("SEARCH_CONTENT",cities_main.getName());
                // intent.putExtra("id",cities_main.getId());
                 startActivity(intent);
 
@@ -382,10 +382,15 @@ if (flag.equals("map")){
             out.setText("Tomorrow");
             Toast.makeText(this,"Invalid Date",Toast.LENGTH_LONG).show();
 
-        }else {
+        }
+        else if(days==0)
+        {
+            indays.setText("" + 1+"N");
+        }
+        else {
             indays.setText("" + days+"N");
         }
-
+;
     }
 
     public static long getDaysBetweenDates(String start, String end) {

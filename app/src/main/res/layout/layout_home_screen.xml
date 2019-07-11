@@ -40,8 +40,10 @@
                 android:background="@drawable/edittext_corners"
                 android:drawableStart="@drawable/search_black_24dp"
                 android:fontFamily="@font/avenirltstd_light"
-                android:hint="Search here..."
-                android:paddingStart="@dimen/_2sdp" />
+                android:hint="Search for Hotel,City or Location"
+                android:paddingStart="@dimen/_2sdp"
+
+                />
 
         </LinearLayout>
 
