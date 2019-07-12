@@ -36,37 +36,20 @@ public class Splash extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
         setContentView(R.layout.activity_splash);
-       /* requestPermission();
+        requestPermission();
         if (!checkPermission()) {
 
-
+            threadFunction();
+            finish();
         }
-        else {*/
+        else {
 
-            new Thread() {
-
-                @Override
-                public void run() {
-
-
-                    try {
-
-
-                        Thread.sleep(6000);
-
-                        startActivity(new Intent(Splash.this, Login.class));
-                      //  Splash.super.finish();
-
-                    } catch (Exception e) {
-
-                    }
-                }
-            }.start();
-
+            threadFunction();
+            finish();
         }
 
 
-   // }
+   }
     private void requestPermission() {
 
         ActivityCompat.requestPermissions(this, new String[]{ ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
@@ -101,32 +84,39 @@ public class Splash extends AppCompatActivity {
 
                     else {
 
-                        new Thread() {
-
-                            @Override
-                            public void run() {
-
-
-                                try {
-
-
-                                    Thread.sleep(6000);
-
-                                    startActivity(new Intent(Splash.this, Login.class));
-                                    //Splash.super.finish();
-
-                                } catch (Exception e) {
-
-                                }
-                            }
-                        }.start();
+                        threadFunction();
+                        finish();
                     }
-                    finish();
                 }
         }
 
     }
 
+
+
+    public  void threadFunction()
+    {
+        new Thread() {
+
+            @Override
+            public void run() {
+
+
+                try {
+
+
+                    Thread.sleep(6000);
+
+                    startActivity(new Intent(Splash.this, Login.class));
+                    //  Splash.super.finish();
+
+                } catch (Exception e) {
+
+                }
+            }
+        }.start();
+
+    }
 
 
 }
