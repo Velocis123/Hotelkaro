@@ -83,7 +83,7 @@ public class Splash extends AppCompatActivity {
                     else {
 
                         threadFunction();
-                        finish();
+
                     }
                 }
         }
@@ -116,5 +116,10 @@ public class Splash extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
 
+        finish();
+
+    }
 }

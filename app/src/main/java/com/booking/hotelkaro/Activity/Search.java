@@ -2,6 +2,7 @@ package com.booking.hotelkaro.Activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 
@@ -54,7 +55,7 @@ public class Search extends AppCompatActivity implements DatePickerDialog.OnDate
     List<Hotel> list = new ArrayList();
     RecyclerView recyclerView;
     List<Amenities> amenities = new ArrayList<>();
-    TextView txt_checkin, txt_checkout;
+    TextView txt_checkin, txt_checkout,txt_room,txt_people;
     String currentDateString;
     String checkOut_date;
     CardView cardView;
@@ -66,6 +67,8 @@ public class Search extends AppCompatActivity implements DatePickerDialog.OnDate
     public static final String DATE_FORMAT = "d/M/yyyy";
 String id ;
 EditText edt_searchbar;
+String room,people;
+SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,13 +78,21 @@ EditText edt_searchbar;
         rel3 = findViewById(R.id.rel3);
         txt_checkin = findViewById(R.id.txt_checkin);
         txt_checkout = findViewById(R.id.txt_checkout);
+        txt_room = findViewById(R.id.txt_rooms);
+        txt_people = findViewById(R.id.num_people);
         recyclerView = findViewById(R.id.recycle);
         id = super.getIntent().getExtras().getString("id");
         edt_searchbar = findViewById(R.id.search);
         img_back=findViewById(R.id.img_back);
         location=findViewById(R.id.location);
 
+sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
 
+//room = sharedPreferences.getInt("room",1);
+//people = sharedPreferences.getInt("people",1);
+//
+//txt_room.setText(Integer.toString(room));
+//txt_people.setText(Integer.toString(people));
 
        edt_searchbar.setOnTouchListener(new View.OnTouchListener() {
            @Override
@@ -117,7 +128,12 @@ EditText edt_searchbar;
         rel3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Search.this, NoOfPerson.class));
+                //startActivity(new Intent(Search.this, NoOfPerson.class));
+
+                Intent intent=new Intent(Search.this,NoOfPerson.class);
+                startActivityForResult(intent,101);
+
+
 
             }
         });
@@ -345,5 +361,21 @@ EditText edt_searchbar;
     private static long getUnitBetweenDates(Date startDate, Date endDate, TimeUnit unit) {
         long timeDiff = endDate.getTime() - startDate.getTime();
         return unit.convert(timeDiff, TimeUnit.MILLISECONDS);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if(requestCode==101)
+        {
+
+            room=data.getStringExtra("room");
+            people=data.getStringExtra("person");
+            Toast.makeText(this,room + " " + people,Toast.LENGTH_LONG).show();
+        }
+
     }
 }

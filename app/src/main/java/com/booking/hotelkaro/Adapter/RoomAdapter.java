@@ -3,6 +3,9 @@ package com.booking.hotelkaro.Adapter;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +25,8 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.MyViewHolder> 
     private List<Room> roomList;
     public static int GETNUM=0;
     public static int COUNTER ;
-
+public String ROOM_ADAPTER_DATA = "roomdata";
+    SharedPreferences sharedpreferences;
 
     public RoomAdapter(Context mContext, List<Room> roomList) {
         this.mContext = mContext;
@@ -47,6 +51,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.MyViewHolder> 
 
         myViewHolder.txt_room_number.setText(""+room.getCount());
         myViewHolder.child.setChecked(room.isChild());
+sharedpreferences = mContext.getSharedPreferences(ROOM_ADAPTER_DATA,Context.MODE_PRIVATE);
+final SharedPreferences.Editor editor = sharedpreferences.edit();
+
 
         myViewHolder.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,12 +82,20 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.MyViewHolder> 
             public void onClick(View v) {
                 GETNUM = 3;
                 room.setNop(GETNUM);
+
                 myViewHolder.btn1.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
                 myViewHolder.btn2.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
                 myViewHolder.btn3.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimary));
 
             }
         });
+
+//        Intent data = new Intent();
+//        data.putExtra("room",roomList.size());
+//        data.putExtra("people",room.getNop());
+//
+
+
 
         myViewHolder.btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +106,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.MyViewHolder> 
                 Room room1=new Room(COUNTER,0,false);
 
                 NoOfPerson.updateList(room1);
+                editor.putInt("room",roomList.size());
+                editor.putInt("people",room.getNop());
+                editor.commit();
 
 //myViewHolder.len_person.setVisibility(View.GONE);
 //myViewHolder.len_del.setVisibility(View.INVISIBLE);
@@ -108,6 +126,8 @@ myViewHolder.len_del.setVisibility(View.GONE);
 
             }
         });
+
+
 
 
 //        if (COUNTER >1){
