@@ -19,17 +19,12 @@
             android:layout_height="wrap_content">
 
 
-            <RelativeLayout
+            <FrameLayout
                 android:id="@+id/len1"
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimary"
                 android:layout_height="@dimen/_180sdp">
 
-                <ImageView
-                    android:layout_width="@dimen/_40sdp"
-                    android:layout_height="@dimen/_40sdp"
-                    android:padding="@dimen/_5sdp"
-                    app:srcCompat="@drawable/back_24dp"/>
 
 
                 <ImageView
@@ -39,8 +34,15 @@
                     android:layout_margin="@dimen/_2sdp"
                     app:srcCompat="@drawable/hotel_wall"
                     android:scaleType="fitXY" />
+                <ImageView
+                    android:id="@+id/img_back"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/ic_arrow_back_white_24dp"/>
 
-            </RelativeLayout>
+
+            </FrameLayout>
 
 
 
@@ -262,6 +264,7 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:cardUseCompatPadding="true"
@@ -302,10 +305,11 @@
                                 android:padding="@dimen/_5sdp"
                                 android:layout_alignParentEnd="true"
                                 android:text="Akash Gupta"
-                                android:textSize="@dimen/_15sdp"/>
+                                android:textSize="@dimen/_12sdp"/>
                         </RelativeLayout>
 
                         <RelativeLayout
+                            android:layout_marginBottom="@dimen/_10sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -337,9 +341,8 @@
         </RelativeLayout>
     </ScrollView>
 
-
-
     <RelativeLayout
+        android:layout_margin="@dimen/_7sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_2sdp"

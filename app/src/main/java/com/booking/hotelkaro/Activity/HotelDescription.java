@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,6 +31,8 @@ public class HotelDescription extends AppCompatActivity {
     ImageView img_hotel;
     Hotel_list hotel;
     RatingBar ratingBar;
+    private ImageView img_back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +45,20 @@ public class HotelDescription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_description);
         ratingBar = findViewById(R.id.ratingBar);
+        img_back=findViewById(R.id.img_back);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HotelDescription.super.onBackPressed();
+            }
+        });
 
         txt_tariffAmt = findViewById(R.id.txt_amount_tariff);
         txt_hotel_name = findViewById(R.id.txt_hotelname);
         img_hotel = findViewById(R.id.img_hotel);
         txt_tariffAmt.setText(R.string.price_placeholder+"800");
         txt_tariffAmt.setPaintFlags(txt_tariffAmt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        hotel = (Hotel_list) super.getIntent().getExtras().get("MODEL");
+        //hotel = (Hotel_list) super.getIntent().getExtras().get("MODEL");
 
 
 //        img_hotel.setImageResource(hotel.getImg_demo());

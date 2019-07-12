@@ -178,7 +178,7 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
                 .build();
         ApiService service = retrofit.create(ApiService.class);
 
-        Call<List<Hotel_list>> call = service.getHotelList("hpt@2019",id,"");
+        Call<List<Hotel_list>> call = service.getHotelList("hpt@2019","5022","");
 
         call.enqueue(new Callback<List<Hotel_list>>() {
             @Override
@@ -188,7 +188,7 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
                 List<Hotel_list> list=response.body();
 
                set_cities_adapter(list);
-                Toast.makeText(Search.this,"SUCCESS",Toast.LENGTH_LONG).show();
+               // Toast.makeText(Search.this,"SUCCESS",Toast.LENGTH_LONG).show();
 
 
             }

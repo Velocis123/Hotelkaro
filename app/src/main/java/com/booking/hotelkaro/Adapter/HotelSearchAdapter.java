@@ -58,6 +58,9 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
 
         Hotel_list hotel = hotelList.get(i);
 
+
+
+
         myViewHolder.hotel_name.setText(hotel.getName());
         myViewHolder.distance.setText( " km from centre");
         myViewHolder.reviews.setText( " reviews");
@@ -70,7 +73,7 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
             @Override
             public void onItemClick(Hotel_list item) {
                 Intent intent = new Intent(mContext, HotelDescription.class);
-                intent.putExtra("MODEL", item);
+                //intent.putExtra("MODEL", item);
                 mContext.startActivity(intent);
             }
         });
