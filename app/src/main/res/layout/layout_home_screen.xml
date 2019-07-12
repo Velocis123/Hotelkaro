@@ -22,7 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="HotelKaro"
-                app:titleTextColor="@color/colorWhite" >
+                app:titleTextColor="@color/colorWhite"
+                android:fontFamily="@font/avenirltstd_light"
+                >
 
 
             </androidx.appcompat.widget.Toolbar>
@@ -42,7 +44,7 @@
                 android:fontFamily="@font/avenirltstd_light"
                 android:hint="Search for Hotel,City or Location"
                 android:paddingStart="@dimen/_2sdp"
-
+                android:textSize="@dimen/_13sdp"
                 />
 
         </LinearLayout>

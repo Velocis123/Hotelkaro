@@ -42,7 +42,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/avenirltstd_light"
         android:text="HotelKaro"
-        android:textColor="#000000"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/_20sdp"/>
 
 
@@ -73,7 +73,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/avenirltstd_light"
         android:text="Smart Hotel Booking"
-        android:textColor="#000000"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/_13sdp" />
 
 

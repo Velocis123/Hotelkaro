@@ -44,6 +44,7 @@
             android:layout_height="@dimen/_40sdp"
             android:src="@drawable/ic_close"
             android:layout_gravity="center"
+            android:id="@+id/cross"
 
             />
     </LinearLayout>

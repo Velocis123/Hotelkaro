@@ -40,6 +40,7 @@
     </RelativeLayout>
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/rel1"
@@ -47,10 +48,12 @@
         android:id="@+id/apply"
         android:gravity="center"
         android:background="@color/colorPrimary"
+        android:padding="@dimen/_4sdp"
 
         >
 
         <Button
+
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:text="Apply"
@@ -60,10 +63,8 @@
             android:gravity="center"
             android:textColor="@color/colorWhite"
             android:paddingTop="@dimen/_5sdp"
-
             android:paddingBottom="@dimen/_5sdp"
             android:textSize="@dimen/_12sdp"
-
             android:id="@+id/btn_book_now"
             android:fontFamily="@font/avenirltstd_light"
             android:background="@null"/>

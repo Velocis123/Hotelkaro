@@ -369,12 +369,12 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        if(requestCode==101)
+        if(requestCode==101 && resultCode==102)
         {
 
             room=data.getStringExtra("room");
             people=data.getStringExtra("person");
-            Toast.makeText(this,room + " " + people,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,room + "," + people,Toast.LENGTH_LONG).show();
         }
 
     }

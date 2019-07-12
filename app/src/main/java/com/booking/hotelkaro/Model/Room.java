@@ -3,7 +3,7 @@ package com.booking.hotelkaro.Model;
 public class Room {
 
     private int count;
-    private int nop;
+    private int nop=1;
     private  boolean child;
 
     public Room(int count, int nop, boolean child) {

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,15 +19,18 @@ import com.booking.hotelkaro.Activity.NoOfPerson;
 import com.booking.hotelkaro.Model.Room;
 import com.booking.hotelkaro.R;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.MyViewHolder> {
     private Context mContext;
     private List<Room> roomList;
-    public static int GETNUM=0;
+    public static int GETNUM=1;
     public static int COUNTER ;
-public String ROOM_ADAPTER_DATA = "roomdata";
+    public String ROOM_ADAPTER_DATA = "roomdata";
     SharedPreferences sharedpreferences;
+    public static  Map<Integer,Integer> map=new HashMap<Integer,Integer>();
 
     public RoomAdapter(Context mContext, List<Room> roomList) {
         this.mContext = mContext;
@@ -51,8 +55,8 @@ public String ROOM_ADAPTER_DATA = "roomdata";
 
         myViewHolder.txt_room_number.setText(""+room.getCount());
         myViewHolder.child.setChecked(room.isChild());
-sharedpreferences = mContext.getSharedPreferences(ROOM_ADAPTER_DATA,Context.MODE_PRIVATE);
-final SharedPreferences.Editor editor = sharedpreferences.edit();
+        sharedpreferences = mContext.getSharedPreferences(ROOM_ADAPTER_DATA,Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedpreferences.edit();
 
 
         myViewHolder.btn1.setOnClickListener(new View.OnClickListener() {
@@ -89,137 +93,54 @@ final SharedPreferences.Editor editor = sharedpreferences.edit();
 
             }
         });
-
-//        Intent data = new Intent();
-//        data.putExtra("room",roomList.size());
-//        data.putExtra("people",room.getNop());
-//
-
-
-
         myViewHolder.btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 COUNTER = roomList.size() + 1;
-
-
                 Room room1=new Room(COUNTER,0,false);
-
                 NoOfPerson.updateList(room1);
                 editor.putInt("room",roomList.size());
                 editor.putInt("people",room.getNop());
                 editor.commit();
-
-//myViewHolder.len_person.setVisibility(View.GONE);
-//myViewHolder.len_del.setVisibility(View.INVISIBLE);
-
-for (int x =1 ;x<= roomList.size()-1;x++ ){
-
-    myViewHolder.len_person.setVisibility(View.GONE);
-myViewHolder.len_del.setVisibility(View.GONE);
-
-}
-
-
-
-
-
             }
         });
-
-
-
-
-//        if (COUNTER >1){
-//            myViewHolder.len_person.setVisibility(View.INVISIBLE);
-//            myViewHolder.len_del.setVisibility(View.VISIBLE);
-//
-//
-//
-//        }
-
-
-        if(COUNTER== 1) {
-
-     myViewHolder.len_person.setVisibility(View.VISIBLE);
-     myViewHolder.len_del.setVisibility(View.INVISIBLE);
-
-        }
-//    else if(roomList.size()>1)
-//        {
-//       myViewHolder.len_person.setVisibility(View.INVISIBLE);
-//       myViewHolder.len_del.setVisibility(View.VISIBLE);
-//
-//        }
-
-            myViewHolder.btn_del.setOnClickListener(new View.OnClickListener() {
+            myViewHolder.cross.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    COUNTER = roomList.size() - 1;
-                    roomList.remove(i);
-                    NoOfPerson.roomAdapter.notifyDataSetChanged();
-
-
-
-
-
+                    if(roomList.size()!=1) {
+                        COUNTER = roomList.size() - 1;
+                        roomList.remove(i);
+                        NoOfPerson.roomAdapter.notifyDataSetChanged();
+                    }
                 }
             });
-
-        /*if(i==0)
-        {
-            myViewHolder.btn_del.setVisibility(View.INVISIBLE);
-            myViewHolder.btn_add.setVisibility(View.INVISIBLE);
-            myViewHolder.btn_add_person.setVisibility(View.VISIBLE);
-        }
-        else {
-            myViewHolder.btn_del.setVisibility(View.VISIBLE);
-            myViewHolder.btn_add.setVisibility(View.VISIBLE);
-            myViewHolder.btn_add_person.setVisibility(View.INVISIBLE);
-
-        }*/
 
             myViewHolder.btn_add_person.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     COUNTER = roomList.size() + 1;
-
-
                     Room room1 = new Room(COUNTER, 0, false);
-
                     NoOfPerson.updateList(room1);
 
 
-//
-//
-//                   myViewHolder.len_person.setVisibility(View.INVISIBLE);
-//                   myViewHolder.len_del.setVisibility(View.VISIBLE);
+                    map.put(roomList.size(),GETNUM);
+
+                  
 
 
 
-        if (COUNTER >1){
-            myViewHolder.len_person.setVisibility(View.INVISIBLE);
-            myViewHolder.len_del.setVisibility(View.VISIBLE);
 
 
-
-        }
-//
-//        }
 
 
                 }
             });
+
+
+
         }
-
-
-
-
     @Override
     public int getItemCount() {
-
-
         return roomList.size();
     }
 
@@ -227,12 +148,10 @@ myViewHolder.len_del.setVisibility(View.GONE);
         TextView txt_room_number;
         CheckBox child;
         LinearLayout btn1,btn2,btn3,len_person,len_del;
-Button btn_add,btn_del,btn_add_person;
-
-
+        Button btn_add,btn_del,btn_add_person;
+        ImageView cross;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             txt_room_number= itemView.findViewById(R.id.room_no);
             child = itemView.findViewById(R.id.check_child);
             btn1 = itemView.findViewById(R.id.btn_1);
@@ -240,41 +159,12 @@ Button btn_add,btn_del,btn_add_person;
             btn3 = itemView.findViewById(R.id.btn_3);
             btn_add = itemView.findViewById(R.id.btn_add);
             btn_del = itemView.findViewById(R.id.btn_del);
-len_person = itemView.findViewById(R.id.len_person);
-btn_add_person =itemView.findViewById(R.id.btn_person);
-len_del = itemView.findViewById(R.id.len_del);
+            len_person = itemView.findViewById(R.id.len_person);
+            btn_add_person =itemView.findViewById(R.id.btn_person);
+            len_del = itemView.findViewById(R.id.len_del);
+            cross=itemView.findViewById(R.id.cross);
+
         }
     }
 
-
-//    class Listener implements View.OnClickListener
-//    {
-//
-//
-//        @Override
-//        public void onClick(View v) {
-//
-//            switch (v.getId()){
-//
-//                case R.id.btn_1 : GETNUM =1 ;
-//                    btn1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-//                    btn2.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-//                    btn3.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-//                    break;
-//
-//                case R.id.btn_2 : GETNUM = 2;
-//                    btn1.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-//                    btn2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-//                    btn3.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-//
-//                    break;
-//
-//                case R.id.btn_3 : GETNUM = 3;
-//                    btn1.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-//                    btn2.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-//                    btn3.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-//            }
-//
-//        }
-//    }
 }
