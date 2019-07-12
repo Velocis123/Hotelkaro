@@ -39,13 +39,13 @@ public class Splash extends AppCompatActivity {
         requestPermission();
         if (!checkPermission()) {
 
-            threadFunction();
-            finish();
+          //  threadFunction();
+
         }
         else {
 
             threadFunction();
-            finish();
+
         }
 
 
@@ -77,9 +77,7 @@ public class Splash extends AppCompatActivity {
 
                     if (finloc && coarseloc) {
 
-                        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            return;
-                        }
+                        threadFunction();
                     }
 
                     else {
