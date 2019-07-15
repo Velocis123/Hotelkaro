@@ -62,13 +62,13 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
 
 
         myViewHolder.hotel_name.setText(hotel.getName());
-        myViewHolder.distance.setText( " km from centre");
+
         myViewHolder.reviews.setText( " reviews");
-        myViewHolder.price.setText("$ " +  "/-");
-        myViewHolder.remarks.setText("");
+
+
 //UniversalImageLoader.setImage(hotel.getImg(),myViewHolder.imageView,null,"https://");
 //        myViewHolder.imageView.setImageResource(hotel.getImg_demo());
-        myViewHolder.ratingBar.setRating(2.5f);
+      //  myViewHolder.ratingBar.setRating(2.5f);
         ImageRecyclerAdapter imageRecyclerAdapter = new ImageRecyclerAdapter(mContext, hotelList, new OnHotelListener() {
             @Override
             public void onItemClick(Hotel_list item) {
@@ -112,7 +112,7 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
             price = itemView.findViewById(R.id.txt_price);
             remarks = itemView.findViewById(R.id.txt_review);
             imageView = itemView.findViewById(R.id.img_cardv);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+          //  ratingBar = itemView.findViewById(R.id.ratingBar);
             recyclerView = itemView.findViewById(R.id.rec_amenities);
             recycle_image = itemView.findViewById(R.id.recycler_img);
 

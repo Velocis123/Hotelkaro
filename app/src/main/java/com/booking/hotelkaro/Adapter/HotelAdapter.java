@@ -46,13 +46,13 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.MyViewHolder
 
         Hotel hotel = hotelList.get(i);
         myViewHolder.hotel_name.setText(hotel.getHotel_name());
-        myViewHolder.distance.setText(hotel.getDistance() + " km from centre");
-        myViewHolder.reviews.setText(hotel.getReviews() + " reviews");
-        myViewHolder.price.setText("$ " + hotel.getPrice() + "/-");
+    //    myViewHolder.distance.setText(hotel.getDistance() + " km from centre");
+      //  myViewHolder.reviews.setText(hotel.getReviews() + " reviews");
+     //   myViewHolder.price.setText("$ " + hotel.getPrice() + "/-");
         myViewHolder.remarks.setText(hotel.getRemarks());
 //UniversalImageLoader.setImage(hotel.getImg(),myViewHolder.imageView,null,"https://");
         myViewHolder.imageView.setImageResource(hotel.getImg_demo());
-        myViewHolder.ratingBar.setRating(Float.parseFloat(hotel.getRatings()));
+       // myViewHolder.ratingBar.setRating(Float.parseFloat(hotel.getRatings()));
 
     }
 
@@ -66,7 +66,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.MyViewHolder
 
 
         TextView hotel_name, distance, reviews, price, remarks;
-        RatingBar ratingBar;
+    //    RatingBar ratingBar;
         ImageView imageView;
 
 
@@ -78,7 +78,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.MyViewHolder
             price = itemView.findViewById(R.id.txt_price);
             remarks = itemView.findViewById(R.id.txt_review);
             imageView = itemView.findViewById(R.id.img_cardv);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+           // ratingBar = itemView.findViewById(R.id.ratingBar);
 
         }
 

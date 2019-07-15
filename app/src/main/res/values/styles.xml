@@ -9,7 +9,13 @@
     </style>
 
 
+<style name="gravity"
 
+    >
+    <item name="android:layout_gravity">bottom</item>
+
+
+</style>
 
     <style name="customRatingBar" parent="android:style/Widget.Material.RatingBar.Small">
         <item name="colorAccent">@color/colorAccent</item>

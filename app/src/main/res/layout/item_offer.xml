@@ -26,6 +26,7 @@
             android:fontFamily="@font/avenirltstd_light"
             android:layout_gravity="bottom"
             android:gravity="center_vertical"
+
             android:text="Zakir Khan's Event"
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
