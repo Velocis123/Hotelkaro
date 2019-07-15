@@ -25,7 +25,7 @@
         android:fontFamily="@font/avenirltstd_light"
         android:textStyle="bold"
         android:gravity="center"
-
+android:paddingLeft="-40dp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:textSize="@dimen/_10sdp"
         android:textColor="@color/colorWhite"
