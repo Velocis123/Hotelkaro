@@ -3,9 +3,11 @@ package com.booking.hotelkaro.API;
 
 import com.booking.hotelkaro.Model.Cities_Main;
 import com.booking.hotelkaro.Model.Hotel_list;
+import com.booking.hotelkaro.Model.OTPModel;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -13,31 +15,33 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
-
     @FormUrlEncoded
     @POST("Api_mobile/popularcity")
     Call<List<Cities_Main>> getcities(
             @Field("accesskey") String accesskey
     );
 
-@FormUrlEncoded
+    @FormUrlEncoded
     @POST("Api_mobile/hotelbycitylocality")
     Call<List<Hotel_list>> getHotelList(
-  @Field("accesskey")    String accesskey,
-  @Field("city_id") String city_id,
-  @Field("locality_id") String locality_id
+    @Field("accesskey")    String accesskey,
+    @Field("city_id") String city_id,
+     @Field("locality_id") String locality_id
+    );
+
+    @FormUrlEncoded
+    @POST("Api_mobile/sendOTPuser")
+    Call<OTPModel> getOTP(
+            @Field("accesskey") String accesskey,
+            @Field("phone") String phone);
 
 
-);
-//
-//@POST("registrationapi.php?apical=login")
-//
-//
-//@FormUrlEncoded
-//    Call<User>  loginUser(
-//        @Field("username") String username,
-//        @Field("password") String password
-//
-//);
+   /* @FormUrlEncoded
+    @POST("Api_mobile/register")
+    Call<OTPModel> getOTP(
+            @Field("accesskey") String accesskey,
+            @Field("phone") String phone);
+*/
+
 
 }

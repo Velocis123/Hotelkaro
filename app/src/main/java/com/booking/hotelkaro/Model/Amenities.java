@@ -6,7 +6,7 @@ public class Amenities {
 
     private String amenities_img;
     private String amenities_name;
-private int amenities_demo;
+    private int amenities_demo;
 
     public Amenities(String amenities_img, String amenities_name, int amenities_demo) {
         this.amenities_img = amenities_img;

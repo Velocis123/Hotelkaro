@@ -54,30 +54,31 @@
 
 
                     <TextView
+                        android:id="@+id/phone"
                         android:layout_width="0dp"
-                        android:layout_weight="2"
                         android:layout_height="match_parent"
+                        android:layout_weight="2"
                         android:fontFamily="@font/avenirltstd_light"
                         android:gravity="center"
-                       android:paddingLeft="@dimen/_2sdp"
-                        android:textColor="#000000"
+                        android:paddingLeft="@dimen/_2sdp"
                         android:text="8750921779"
-                        android:textSize="@dimen/_12sdp"
                         android:textAlignment="textStart"
-                        />
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_12sdp" />
 
 
                     <TextView
+                        android:id="@+id/change"
                         android:layout_width="0dp"
-                        android:layout_weight="1.5"
                         android:layout_height="match_parent"
+                        android:layout_weight="1.5"
                         android:fontFamily="@font/avenirltstd_light"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_20sdp"
                         android:text="Change"
-                        android:textStyle="bold"
                         android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/_12sdp"/>
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 
@@ -99,20 +100,20 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
                         android:background="@null"
-                        android:padding="@dimen/_5sdp"
-                        android:drawablePadding="10dip"
-                        android:textColor="#000000"
-                        android:textColorHint="#000000"
                         android:drawableStart="@drawable/name_24dp"
+                        android:drawablePadding="10dip"
                         android:fontFamily="@font/avenirltstd_light"
                         android:hint="Enter Your Full Name"
-                        android:textSize="@dimen/_12sdp"
-                        />
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000"
+                        android:textSize="@dimen/_12sdp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -123,21 +124,21 @@
 
 
                     <EditText
+                        android:id="@+id/otp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:drawablePadding="10dip"
-                        android:padding="@dimen/_5sdp"
-                        android:textColorHint="#000000"
-                        android:textColor="#000000"
-                        android:background="@null"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@null"
                         android:drawableStart="@drawable/otp_24dp"
+                        android:drawablePadding="10dip"
                         android:fontFamily="@font/avenirltstd_light"
                         android:hint="Enter OTP "
-                        android:textSize="@dimen/_12sdp"
-                        />
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000"
+                        android:textSize="@dimen/_12sdp" />
 
 
 
