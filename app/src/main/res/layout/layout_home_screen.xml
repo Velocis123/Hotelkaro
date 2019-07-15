@@ -239,6 +239,44 @@
                         android:background="@color/colorGrey" />-->
 
 
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_2sdp"
+                        android:elevation="@dimen/_2sdp"
+                        >
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@drawable/horizontal_ad_hotel"
+                            android:scaleType="fitXY"
+
+                            />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/rec_trendinghotel"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        >
+
+
+
+
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -355,6 +393,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:labelVisibilityMode="labeled"
+        android:id="@+id/bottom_nav_view"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
         android:background="@color/colorPrimary"
         app:menu="@menu/menu_bottomnavigation">

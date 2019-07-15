@@ -1,5 +1,6 @@
 package com.booking.hotelkaro.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -7,6 +8,8 @@ import android.os.Handler;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridLayout;
@@ -14,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,13 +34,17 @@ import com.booking.hotelkaro.Adapter.AmenitiesAdapter;
 import com.booking.hotelkaro.Adapter.CityAdapter;
 import com.booking.hotelkaro.Adapter.HotelAdapter;
 import com.booking.hotelkaro.Adapter.OfferAdapter;
+import com.booking.hotelkaro.Adapter.Trending_hotel_adapter;
 import com.booking.hotelkaro.Model.Amenities;
 import com.booking.hotelkaro.Model.Cities;
 import com.booking.hotelkaro.Model.Cities_Main;
 import com.booking.hotelkaro.Model.Hotel;
 import com.booking.hotelkaro.Model.OffersModel;
+import com.booking.hotelkaro.Model.Trending_Hotel;
 import com.booking.hotelkaro.R;
+import com.booking.hotelkaro.Utils.BottomNavHelper;
 import com.booking.hotelkaro.Utils.VolleySingleton;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -55,10 +63,11 @@ import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private static final int ACTIVITY_NUM = 0;
     RecyclerView recyclerView_hotel, recyclerView_cities, recyclerView_amenities,recyclerView_cv;
     ImageView imageView;
     List<Hotel> list = new ArrayList();
+    List<Trending_Hotel> trending_hotel_list = new ArrayList<>();
     List<Cities> cities = new ArrayList<>();
     List<Amenities> amenities = new ArrayList<>();
     EditText search;
@@ -66,13 +75,15 @@ public class MainActivity extends AppCompatActivity {
     OfferAdapter offerAdapter;
     public static ArrayList<OffersModel.Bus> busList;
     RecyclerView recyclerOffer;
-
+    Context context = MainActivity.this;
+Cities_Main cities_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_home_screen);
 
         search = findViewById(R.id.edt_search_home);
+        cities_main = new Cities_Main(0,"","","","","","","");
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent=new Intent(MainActivity.this, CityLocation.class);
                 intent.putExtra("flag","s");
 
+intent.putExtra("MODEL",cities_main);
                 startActivity(intent);
 
 
@@ -94,7 +106,7 @@ map.setOnClickListener(new View.OnClickListener() {
 
 Intent intent = new Intent(MainActivity.this,CityLocation.class);
 intent.putExtra("flag","map");
-
+intent.putExtra("MODEL",cities_main);
 startActivity(intent);
 
 
@@ -108,11 +120,18 @@ startActivity(intent);
         recyclerOffer.setLayoutManager(layoutManager2);
         offerAdapter = new OfferAdapter(getApplication(), busList);
         recyclerOffer.setAdapter(offerAdapter);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        BottomNavHelper.enableNavigation(context,bottomNavigationView);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
 
 
       //  get_cities();
         get_amenities();
         get_hotels();
+        get_trending_hotels();
 cities_main();
 
 
@@ -197,6 +216,32 @@ cities_main();
 
     }
 
+
+    public void get_trending_hotels() {
+        recyclerView_hotel = findViewById(R.id.rec_trendinghotel);
+
+        Trending_Hotel hotel1 =new Trending_Hotel("","Lemon Tree Premier","",
+                "",R.drawable.lemontree,null);
+
+        Trending_Hotel hotel2 = new Trending_Hotel("", "Promenage",""," ",
+                R.drawable.promenade, null);
+        Trending_Hotel hotel3 = new Trending_Hotel("", "Ashoka Hotel",
+                "2.5","", R.drawable.ashoka, null);
+
+        Trending_Hotel hotel4 = new Trending_Hotel("", "Welcome Hotel",
+                "1.5", "", R.drawable.wlcome, null);
+
+
+        trending_hotel_list.add(hotel2);
+        trending_hotel_list.add(hotel3);
+        trending_hotel_list.add(hotel4);
+        trending_hotel_list.add(hotel1);
+
+        Trending_hotel_adapter adapter = new Trending_hotel_adapter(MainActivity.this, trending_hotel_list);
+        recyclerView_hotel.setLayoutManager(new LinearLayoutManager(this, LinearLayout.HORIZONTAL,false));
+        recyclerView_hotel.setAdapter(adapter);
+
+    }
 
     private void getOffer() {
 
@@ -335,4 +380,6 @@ cities_main();
 
 
     }
+
+
 }

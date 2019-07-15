@@ -178,7 +178,7 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
                 .build();
         ApiService service = retrofit.create(ApiService.class);
 
-        Call<List<Hotel_list>> call = service.getHotelList("hpt@2019","5022","");
+        Call<List<Hotel_list>> call = service.getHotelList("hpt@2019",id,"");
 
         call.enqueue(new Callback<List<Hotel_list>>() {
             @Override
@@ -188,7 +188,7 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
                 List<Hotel_list> list=response.body();
 
                set_cities_adapter(list);
-               // Toast.makeText(Search.this,"SUCCESS",Toast.LENGTH_LONG).show();
+                Toast.makeText(Search.this,"SUCCESS",Toast.LENGTH_LONG).show();
 
 
             }
@@ -369,12 +369,12 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        if(requestCode==101 && resultCode==102)
+        if(requestCode==101)
         {
 
             room=data.getStringExtra("room");
             people=data.getStringExtra("person");
-            Toast.makeText(this,room + "," + people,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,room + " " + people,Toast.LENGTH_LONG).show();
         }
 
     }

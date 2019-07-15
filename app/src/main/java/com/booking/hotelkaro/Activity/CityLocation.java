@@ -88,6 +88,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
     static int DATE_DIALOG = 0;
     public static final String DATE_FORMAT = "d/M/yyyy";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +108,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
         img_search = findViewById(R.id.img_search);
         img_back= findViewById(R.id.img_back);
         flag=super.getIntent().getExtras().getString("flag");
+cities_main = (Cities_Main)super.getIntent().getExtras().get("MODEL");
 
         in=findViewById(R.id.in);
         indate=findViewById(R.id.indate);
@@ -124,7 +126,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
 
         if(flag.equals("c"))
         {
-            cities_main=(Cities_Main) super.getIntent().getExtras().get("id");
+//          cities_main=(Cities_Main) super.getIntent().getExtras().get("id");
 
          //show layout
 //            if (edt_searchbox.requestFocus() == true){
@@ -136,7 +138,8 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
 //            }
 
 
-        }else if (flag.equals("s"))
+        }
+        else if (flag.equals("s"))
         {
             edt_searchbox.requestFocus();
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
@@ -162,7 +165,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
 
                 Intent intent = new Intent(CityLocation.this,Search.class);
                 intent.putExtra("SEARCH_CONTENT",get_search);
-               // intent.putExtra("id",cities_main.getId());
+               intent.putExtra("MODEL",cities_main);
                 startActivity(intent);
 
 
