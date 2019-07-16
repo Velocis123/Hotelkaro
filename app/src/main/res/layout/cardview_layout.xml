@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_80sdp"
             android:layout_gravity="center_horizontal"
-
+android:layout_marginRight="@dimen/_3sdp"
             android:layout_marginLeft="@dimen/_3sdp"
             android:scaleType="fitXY" />
 
@@ -74,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
 
+
                     >
 
 
@@ -90,6 +91,7 @@
                         android:gravity="center"
                         android:padding="@dimen/_3sdp"
                         android:text="4.5"
+                        android:layout_marginBottom="@dimen/_5sdp"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/_10sdp"
                         android:textStyle="bold" />

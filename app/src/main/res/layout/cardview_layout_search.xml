@@ -37,6 +37,7 @@
                     android:layout_alignTop="@+id/rel1"
                     android:layout_alignEnd="@+id/rel1"
                     android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
                     android:orientation="horizontal" />
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -66,7 +67,6 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_gravity="bottom"
-                     android:layout_marginBottom="@dimen/_5sdp"
 
 
                     >
@@ -78,13 +78,14 @@
 
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="wrap_content"
-                   android:layout_alignParentEnd="true"
-android:layout_gravity="bottom"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="bottom"
                     android:background="@color/colorPrimary"
                     android:fontFamily="@font/avenirltstd_light"
                     android:gravity="center"
                     android:padding="@dimen/_3sdp"
                     android:text="4.5"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold" />
