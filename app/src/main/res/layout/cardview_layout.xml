@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -28,77 +28,103 @@
             android:layout_margin="@dimen/_2sdp"            >
 
             <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/rel1"
+                >
+            <RelativeLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
 
 
                 >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    app:cardCornerRadius="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    >
+
+
+
+
+
+
 
         <ImageView
             android:id="@+id/img_cardv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_80sdp"
             android:layout_gravity="center_horizontal"
-android:layout_marginRight="@dimen/_3sdp"
-            android:layout_marginLeft="@dimen/_3sdp"
-            android:scaleType="fitXY" />
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top">
+            style=""
+            android:scaleType="fitXY"
 
+            />
 
-                    <TextView
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/_3sdp"
-                        android:id="@+id/offer"
-
-                        android:fontFamily="@font/avenirltstd_light"
-
-                        android:gravity="center_vertical"
-                        android:text="50 % OFF"
-                        android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold"
-                        android:background="@color/colorPrimary"
-                        android:textColor="@color/colorWhite"
-                        android:layout_marginTop="@dimen/_5sdp"
-
-                        />
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                        android:layout_gravity="top">
 
 
-                    >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_3sdp"
+                            android:id="@+id/offer"
 
+                            android:fontFamily="@font/avenirltstd_light"
 
-                    <TextView
+                            android:gravity="center_vertical"
+                            android:text="50 % OFF"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold"
+                            android:background="@color/colorPrimary"
+                            android:textColor="@color/colorWhite"
+                            android:layout_marginTop="@dimen/_5sdp"
 
-                        android:id="@+id/tv_offer_code_flight"
-
-                        android:layout_width="@dimen/_40sdp"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_gravity="bottom"
 
-                        android:background="@color/colorPrimary"
-                        android:fontFamily="@font/avenirltstd_light"
-                        android:gravity="center"
-                        android:padding="@dimen/_3sdp"
-                        android:text="4.5"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold" />
 
-                </RelativeLayout>
+                        >
+
+
+                        <TextView
+
+                            android:id="@+id/tv_offer_code_flight"
+
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+
+                            android:background="@color/colorPrimary"
+                            android:fontFamily="@font/avenirltstd_light"
+                            android:gravity="center"
+                            android:padding="@dimen/_3sdp"
+                            android:text="4.5"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+
+
 
             </FrameLayout>
+
 
 
 
@@ -230,4 +256,4 @@ android:layout_marginRight="@dimen/_3sdp"
     </androidx.cardview.widget.CardView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

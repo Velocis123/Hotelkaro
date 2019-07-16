@@ -19,6 +19,8 @@
             android:layout_margin="@dimen/_2sdp">
 
 
+
+
             <FrameLayout
                 android:id="@+id/rel1"
                 android:layout_width="match_parent"
@@ -28,17 +30,41 @@
 
                 >
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_3sdp"
+    android:layout_marginRight="@dimen/_3sdp">
 
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_3sdp"
+
+
+    >
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_img"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/rel1"
-                    android:layout_alignEnd="@+id/rel1"
-                    android:layout_marginLeft="@dimen/_3sdp"
-                    android:layout_marginRight="@dimen/_3sdp"
-                    android:orientation="horizontal" />
+
+
+                    android:orientation="horizontal"
+
+                    >
+
+
+
+
+                </androidx.recyclerview.widget.RecyclerView>
+</androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
+
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,6 +117,7 @@
                     android:textStyle="bold" />
 
               </RelativeLayout>
+
             </FrameLayout>
 
 

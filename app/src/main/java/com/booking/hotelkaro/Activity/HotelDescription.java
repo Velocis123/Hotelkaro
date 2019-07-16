@@ -1,5 +1,7 @@
 package com.booking.hotelkaro.Activity;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Build;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,11 +29,13 @@ public class HotelDescription extends AppCompatActivity {
 
     List<Amenities> amenities = new ArrayList<>();
     RecyclerView recyclerView_des_amenities;
-    TextView txt_tariffAmt, txt_hotel_name;
+    TextView txt_tariffAmt, txt_hotel_name,txt_desc;
     ImageView img_hotel;
     Hotel_list hotel;
     RatingBar ratingBar;
-    private ImageView img_back;
+     ImageView img_back;
+
+
 
 
     @Override
@@ -46,6 +50,14 @@ public class HotelDescription extends AppCompatActivity {
         setContentView(R.layout.activity_hotel_description);
         ratingBar = findViewById(R.id.ratingBar);
         img_back=findViewById(R.id.img_back);
+        txt_desc = findViewById(R.id.txt_description);
+        txt_desc.setText("Other will travel/book and pay you can get a Free Travel/Stay! \n" +
+                " Invite your friends to HotelKaro.When they departure/check- \n" +
+                " out,you get Free Stay/Travel.Also,they get Rs200 extra off \n" +
+                "on their first stay/travel");
+
+
+
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +78,16 @@ public class HotelDescription extends AppCompatActivity {
 //        ratingBar.setRating(Float.parseFloat(hotel.getRatings()));
 
         get_amenities();
-
+img_hotel = findViewById(R.id.img_hotel);
+img_hotel.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(HotelDescription.this,Hotel_images.class);
+        ActivityOptions options =
+                ActivityOptions.makeCustomAnimation(HotelDescription.this, R.anim.fade_in, R.anim.fade_out);
+        startActivity(intent,options.toBundle());
+    }
+});
 
     }
 

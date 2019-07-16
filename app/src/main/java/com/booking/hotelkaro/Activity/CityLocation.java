@@ -131,7 +131,7 @@ cities_main = (Cities_Main)super.getIntent().getExtras().get("MODEL");
          //show layout
 //            if (edt_searchbox.requestFocus() == true){
 //
-              edt_searchbox.setText("Where is " + cities_main.getHomecity_name() + "?");
+              edt_searchbox.setText("Where in " + cities_main.getHomecity_name() + "?");
 
 //
 //
@@ -163,7 +163,7 @@ cities_main = (Cities_Main)super.getIntent().getExtras().get("MODEL");
 
                 get_search = edt_searchbox.getText().toString();
 
-                Intent intent = new Intent(CityLocation.this,Search.class);
+                Intent intent = new Intent(CityLocation.this,HotelDescription.class);
                 intent.putExtra("SEARCH_CONTENT",get_search);
                intent.putExtra("MODEL",cities_main);
                 startActivity(intent);

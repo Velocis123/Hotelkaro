@@ -67,23 +67,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_hotelname"
-                android:layout_marginTop="@dimen/_2sdp">
+                android:layout_marginTop="@dimen/_2sdp"
+
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="@dimen/_40sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:background="@color/colorGrey"
+                    app:cardCornerRadius="@dimen/_3sdp"
+                    >
 
                 <ImageView
                     android:id="@+id/img_map"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_5sdp"
-                    android:scaleType="fitXY"
-                    android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/place_24dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                   android:scaleType="fitXY"
+
+
+                    app:srcCompat="@drawable/gmap"
+
+                    />
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/txt_address"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_toEndOf="@+id/img_map"
+android:layout_marginTop="@dimen/_3sdp"
                     android:fontFamily="@font/avenirltstd_light"
                     android:gravity="center_vertical"
                     android:text="Assotech Business Crestera Noida- 135" />
@@ -104,16 +120,17 @@
                     android:rating="4.0" />-->
 
                 <RatingBar
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_width="wrap_content"
-                    style="@style/MyRatingBarTwo"
-                    android:layout_toEndOf="@+id/img_map"
-                    android:layout_below="@+id/txt_address"
-                    android:rating="4"
-                    android:layout_gravity="center_vertical"
-                    android:progressTint="@color/colorPrimary"
                     android:id="@+id/ratingBar"
-                    android:numStars="5" />
+                style="@style/customRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_below="@+id/txt_address"
+                    android:layout_gravity="center"
+                   android:layout_marginLeft="@dimen/_5sdp"
+                    android:numStars="5"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:progressTint="@color/colorPrimary"
+                    android:rating="4" />
 
             </RelativeLayout>
 
@@ -152,11 +169,218 @@
 
             </RelativeLayout>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rel5"
+                android:layout_below="@id/rel2"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:elevation="@dimen/_10sdp"
 
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="Description :"
+                    android:gravity="center_vertical"
+                    android:id="@+id/txt_des"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/avenirltstd_light"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorblack"
+
+                    />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorblack"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/avenirltstd_light"
+                    android:textSize="@dimen/_10sdp"
+                    android:id="@+id/txt_description"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:gravity="center"
+
+                    />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rel5"
+                android:elevation="@dimen/_5sdp"
+                android:id="@+id/card3"
+                android:layout_marginTop="@dimen/_5sdp"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_below="@+id/view_top"
+                    android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+
+                    <TextView
+                        android:id="@+id/in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Today"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_12sdp"
+                        android:gravity="center"
+                        android:fontFamily="@font/avenirltstd_light"/>
+
+
+                    <TextView
+                        android:id="@+id/indate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="12:00 PM"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:fontFamily="@font/avenirltstd_light"/>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:background="#D8D6D6"/>
+
+
+
+                    <TextView
+                        android:id="@+id/indays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IN"
+                        android:background="#D8D6D6"
+                        android:layout_gravity="center"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:textColor="@color/colorblack"
+                        android:textSize="@dimen/_10sdp"
+                        android:gravity="center"/>
+
+
+                </FrameLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+
+                    <TextView
+                        android:id="@+id/out"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomorrow"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_12sdp"
+                        android:gravity="center"
+                        android:fontFamily="@font/avenirltstd_light"/>
+
+
+                    <TextView
+                        android:id="@+id/outdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="11:00 AM"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:fontFamily="@font/avenirltstd_light"/>
+
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="#D8D6D6"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+
+                    <TextView
+                        android:id="@+id/room"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1 Room"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_12sdp"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:fontFamily="@font/avenirltstd_light"/>
+
+
+                    <TextView
+                        android:id="@+id/roomval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1 Guest"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:fontFamily="@font/avenirltstd_light"/>
+
+                </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/rel3"
-                    android:layout_below="@+id/rel2"
+                    android:layout_below="@+id/card3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardUseCompatPadding="true"
@@ -165,7 +389,9 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        >
 
 
                         <LinearLayout
@@ -188,6 +414,7 @@
                                 android:paddingLeft="@dimen/_5sdp"
                                 android:text="Amount Payable"
                                 android:textSize="@dimen/_10sdp"
+                                android:textColor="@color/colorblack"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -233,6 +460,7 @@
                                 android:fontFamily="@font/avenirltstd_light"
                                 android:gravity="center_vertical"
                                 android:text="Room Tariff"
+                                android:textColor="@color/colorblack"
                                 android:textStyle="bold"/>
 
                             <TextView
@@ -269,6 +497,7 @@
                     android:layout_height="match_parent"
                     app:cardUseCompatPadding="true"
                     app:cardElevation="@dimen/_2sdp"
+                    android:id="@+id/card2"
                     android:layout_below="@+id/rel3">
 
                     <LinearLayout
@@ -291,6 +520,7 @@
                                 android:fontFamily="@font/avenirltstd_light"
                                 android:gravity="center_vertical"
                                 android:text="Booking for"
+                                android:textColor="@color/colorblack"
                                 android:layout_centerVertical="true"
                                 android:padding="@dimen/_5sdp"
                                 android:textSize="@dimen/_10sdp"
@@ -338,6 +568,10 @@
                         </RelativeLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+
+
+
         </RelativeLayout>
     </ScrollView>
 

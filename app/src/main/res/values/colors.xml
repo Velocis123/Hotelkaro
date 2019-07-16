@@ -6,7 +6,7 @@
     <color name="colorWhite">#fff</color>
     <color name="colorblack">#000</color>
     <color name="colorPink">#ff8080</color>
-    <color name="colorGrey">#A9A9A9</color>
+    <color name="colorGrey">#80000000</color>
     <color name="colorGreen">#32CD32</color>
     <color name="colorLightorange">#fffdd0</color>
 </resources>
