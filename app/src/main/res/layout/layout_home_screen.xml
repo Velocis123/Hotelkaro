@@ -217,7 +217,33 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="@dimen/_2sdp"
                         android:background="@color/colorGrey" />-->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_3sdp"
+                        android:elevation="@dimen/_5sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_3sdp"
+                        >
 
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Trending Hotels"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/avenirltstd_light"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_12sdp"
+                            android:background="@drawable/gradiant_top"
+                            />
+
+
+
+                    </androidx.cardview.widget.CardView>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycle_hotels"
@@ -247,6 +273,7 @@
                         android:layout_marginBottom="@dimen/_10sdp"
                         app:cardCornerRadius="@dimen/_2sdp"
                         android:elevation="@dimen/_2sdp"
+                        android:layout_margin="3dp"
                         >
 
                         <ImageView
@@ -259,7 +286,82 @@
                             />
 
 
+
+
                     </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_3sdp"
+                        android:elevation="@dimen/_5sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_3sdp"
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Exclusive Hotel Room"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/avenirltstd_light"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_12sdp"
+                            android:background="@drawable/gradiant_top"
+                            />
+
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/rec_popularhotel"
+                        >
+
+
+
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_3sdp"
+                        android:elevation="@dimen/_5sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_3sdp"
+
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Popular Hotels"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/avenirltstd_light"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_12sdp"
+                            android:background="@drawable/gradiant_top"
+                            />
+
+
+
+                    </androidx.cardview.widget.CardView>
+
+
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"

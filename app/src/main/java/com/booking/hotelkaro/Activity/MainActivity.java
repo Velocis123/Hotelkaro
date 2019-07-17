@@ -34,12 +34,14 @@ import com.booking.hotelkaro.Adapter.AmenitiesAdapter;
 import com.booking.hotelkaro.Adapter.CityAdapter;
 import com.booking.hotelkaro.Adapter.HotelAdapter;
 import com.booking.hotelkaro.Adapter.OfferAdapter;
+import com.booking.hotelkaro.Adapter.Popular_hotel_adapter;
 import com.booking.hotelkaro.Adapter.Trending_hotel_adapter;
 import com.booking.hotelkaro.Model.Amenities;
 import com.booking.hotelkaro.Model.Cities;
 import com.booking.hotelkaro.Model.Cities_Main;
 import com.booking.hotelkaro.Model.Hotel;
 import com.booking.hotelkaro.Model.OffersModel;
+import com.booking.hotelkaro.Model.PopularHotels;
 import com.booking.hotelkaro.Model.Trending_Hotel;
 import com.booking.hotelkaro.R;
 import com.booking.hotelkaro.Utils.BottomNavHelper;
@@ -64,11 +66,12 @@ import static java.security.AccessController.getContext;
 public class MainActivity extends AppCompatActivity {
 
     private static final int ACTIVITY_NUM = 0;
-    RecyclerView recyclerView_hotel, recyclerView_cities, recyclerView_amenities,recyclerView_cv;
+    RecyclerView recyclerView_hotel, recyclerView_cities, recyclerView_amenities,recyclerView_cv,rec_pop_hotel;
     ImageView imageView;
     List<Hotel> list = new ArrayList();
     List<Trending_Hotel> trending_hotel_list = new ArrayList<>();
     List<Cities> cities = new ArrayList<>();
+    List<PopularHotels> popularHotelsList = new ArrayList<>();
     List<Amenities> amenities = new ArrayList<>();
     EditText search;
     LinearLayout map;
@@ -132,6 +135,7 @@ startActivity(intent);
         get_amenities();
         get_hotels();
         get_trending_hotels();
+        get_popular_hotels();
 cities_main();
 
 
@@ -240,6 +244,25 @@ cities_main();
         Trending_hotel_adapter adapter = new Trending_hotel_adapter(MainActivity.this, trending_hotel_list);
         recyclerView_hotel.setLayoutManager(new LinearLayoutManager(this, LinearLayout.HORIZONTAL,false));
         recyclerView_hotel.setAdapter(adapter);
+
+    }
+
+    public void get_popular_hotels() {
+        rec_pop_hotel = findViewById(R.id.rec_popularhotel);
+
+       PopularHotels hotels1 = new PopularHotels("","","","",R.drawable.promanade,null);
+        PopularHotels hotels2 = new PopularHotels("","","","",R.drawable.ashoka,null);
+        PopularHotels hotels3 = new PopularHotels("","","","",R.drawable.lemontree,null);
+        PopularHotels hotels4 = new PopularHotels("","","","",R.drawable.welcome,null);
+
+        popularHotelsList.add(hotels1);
+        popularHotelsList.add(hotels2);
+        popularHotelsList.add(hotels3);
+        popularHotelsList.add(hotels4);
+
+        Popular_hotel_adapter adapter = new Popular_hotel_adapter(MainActivity.this, popularHotelsList);
+        rec_pop_hotel.setLayoutManager(new LinearLayoutManager(this, LinearLayout.HORIZONTAL,false));
+        rec_pop_hotel.setAdapter(adapter);
 
     }
 

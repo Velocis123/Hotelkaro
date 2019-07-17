@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+   android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        >
+
+        <RelativeLayout
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_180sdp"
+            >
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_180sdp"
+        app:cardCornerRadius="@dimen/_3sdp"
+        android:elevation="@dimen/_5sdp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            android:id="@+id/img_hotel"
+            android:scaleType="fitXY"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/_10sdp"
+           android:id="@+id/txt_abt_hotel"
+            android:text="Home stays with luxurious spaces and awesome feel for you"
+android:fontFamily="@font/avenirltstd_light"
+            android:textSize="@dimen/_8sdp"
+            android:gravity="center"
+
+            />
+
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_20sdp"
+    android:layout_gravity="center_vertical"
+    android:layout_marginTop="@dimen/_20sdp"
+    android:layout_marginLeft="@dimen/_20sdp"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:text="Home"
+     android:gravity="center"
+        android:padding="@dimen/_3sdp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        />
+
+</RelativeLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>
