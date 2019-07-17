@@ -2,6 +2,7 @@ package com.booking.hotelkaro.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 
@@ -67,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int ACTIVITY_NUM = 0;
     RecyclerView recyclerView_hotel, recyclerView_cities, recyclerView_amenities,recyclerView_cv,rec_pop_hotel;
-    ImageView imageView;
+    ImageView imageView,profile;
     List<Hotel> list = new ArrayList();
     List<Trending_Hotel> trending_hotel_list = new ArrayList<>();
+    List<PopularHotels> popular_hotel_list = new ArrayList<>();
     List<Cities> cities = new ArrayList<>();
-    List<PopularHotels> popularHotelsList = new ArrayList<>();
     List<Amenities> amenities = new ArrayList<>();
     EditText search;
     LinearLayout map;
@@ -80,11 +81,15 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerOffer;
     Context context = MainActivity.this;
 Cities_Main cities_main;
+private String PREF_FIRST = "FIRST";
+SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_home_screen);
-
+        profile = findViewById(R.id.profile);
+sharedPreferences = getSharedPreferences(PREF_FIRST,MODE_PRIVATE);
         search = findViewById(R.id.edt_search_home);
         cities_main = new Cities_Main(0,"","","","","","","");
         search.setOnClickListener(new View.OnClickListener() {
@@ -130,13 +135,36 @@ startActivity(intent);
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
 
+        if (sharedPreferences.getBoolean("result",false)){
+            profile.setBackground(getResources().getDrawable(R.drawable.ic_profile_nc));
+
+        }else{
+
+            profile.setBackground(getResources().getDrawable(R.drawable.ic_profile_c));
+        }
+
+
+profile.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("result",true);
+        editor.commit();
+
+        Intent intent = new Intent(MainActivity.this,Profile.class);
+        startActivity(intent);
+
+
+    }
+});
 
       //  get_cities();
         get_amenities();
         get_hotels();
         get_trending_hotels();
         get_popular_hotels();
-cities_main();
+        cities_main();
 
 
     }
@@ -250,17 +278,18 @@ cities_main();
     public void get_popular_hotels() {
         rec_pop_hotel = findViewById(R.id.rec_popularhotel);
 
-       PopularHotels hotels1 = new PopularHotels("","","","",R.drawable.promanade,null);
-        PopularHotels hotels2 = new PopularHotels("","","","",R.drawable.ashoka,null);
-        PopularHotels hotels3 = new PopularHotels("","","","",R.drawable.lemontree,null);
-        PopularHotels hotels4 = new PopularHotels("","","","",R.drawable.welcome,null);
+        PopularHotels popularHotels = new PopularHotels("","Lemon Tree Premier","Noida Sec 16","2000","4.3","Deluxe",R.drawable.lemontree,null);
+        PopularHotels popularHotels1 = new PopularHotels("","Promenage","Noida Sec 16","2000","4.3","Deluxe",R.drawable.promanade,null);
+        PopularHotels popularHotels2 = new PopularHotels("","Ashoka Hotel","Noida Sec 16","2000","4.3","Deluxe",R.drawable.ashoka,null);
+        PopularHotels popularHotels3 = new PopularHotels("","Welcome Hotel","Noida Sec 16","2000","4.3","Deluxe",R.drawable.welcome,null);
 
-        popularHotelsList.add(hotels1);
-        popularHotelsList.add(hotels2);
-        popularHotelsList.add(hotels3);
-        popularHotelsList.add(hotels4);
 
-        Popular_hotel_adapter adapter = new Popular_hotel_adapter(MainActivity.this, popularHotelsList);
+        popular_hotel_list.add(popularHotels1);
+        popular_hotel_list.add(popularHotels2);
+        popular_hotel_list.add(popularHotels3);
+        popular_hotel_list.add(popularHotels);
+
+        Popular_hotel_adapter adapter = new Popular_hotel_adapter(MainActivity.this, popular_hotel_list);
         rec_pop_hotel.setLayoutManager(new LinearLayoutManager(this, LinearLayout.HORIZONTAL,false));
         rec_pop_hotel.setAdapter(adapter);
 

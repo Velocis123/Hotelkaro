@@ -17,7 +17,7 @@
             android:orientation="vertical">
 
 
-            <androidx.appcompat.widget.Toolbar
+            <RelativeLayout
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -27,7 +27,35 @@
                 >
 
 
-            </androidx.appcompat.widget.Toolbar>
+                <TextView
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="match_parent"
+                   android:layout_centerInParent="true"
+                    android:text="HotelKaro"
+                    android:gravity="center"
+                    android:id="@+id/hotelkaro"
+                    android:textColor="@color/colorWhite"
+                    android:fontFamily="@font/avenirltstd_light"
+                    android:textSize="@dimen/_25sdp"
+android:drawableLeft="@drawable/icon"
+                    />
+
+
+
+
+<ImageView
+    android:layout_width="@dimen/_20sdp"
+    android:layout_height="@dimen/_20sdp"
+    android:layout_alignParentEnd="true"
+    android:layout_centerInParent="true"
+
+    android:layout_marginRight="@dimen/_10sdp"
+    android:id="@+id/profile"
+
+
+    />
+
+            </RelativeLayout>
 
 
             <EditText
@@ -233,12 +261,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Trending Hotels"
-                            android:gravity="center"
+                            android:gravity="center_vertical"
                             android:textStyle="bold"
                             android:fontFamily="@font/avenirltstd_light"
-                            android:textColor="@color/colorWhite"
+                            android:textColor="@color/colorblack"
                             android:textSize="@dimen/_12sdp"
-                            android:background="@drawable/gradiant_top"
+                            android:paddingLeft="@dimen/_3sdp"
+
                             />
 
 
@@ -306,12 +335,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Exclusive Hotel Room"
-                            android:gravity="center"
+                            android:gravity="center_vertical"
                             android:textStyle="bold"
                             android:fontFamily="@font/avenirltstd_light"
-                            android:textColor="@color/colorWhite"
+                            android:textColor="@color/colorblack"
                             android:textSize="@dimen/_12sdp"
-                            android:background="@drawable/gradiant_top"
+                            android:paddingLeft="@dimen/_3sdp"
+
                             />
 
 
@@ -349,12 +379,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Popular Hotels"
-                            android:gravity="center"
+                            android:gravity="center_vertical"
                             android:textStyle="bold"
                             android:fontFamily="@font/avenirltstd_light"
-                            android:textColor="@color/colorWhite"
+                            android:textColor="@color/colorblack"
                             android:textSize="@dimen/_12sdp"
-                            android:background="@drawable/gradiant_top"
+                            android:paddingLeft="@dimen/_3sdp"
+
                             />
 
 

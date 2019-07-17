@@ -37,16 +37,23 @@ android:background="@color/colorblack"
             android:layout_centerInParent="true"
             app:cardBackgroundColor="@color/colorGrey"
 
+
             >
+
+
+
             <ImageView
                 android:id="@+id/close"
-                android:padding="@dimen/_11sdp"
+
                 android:layout_width="match_parent"
                 android:src="@drawable/ic_close_white"
                 android:elevation="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
                 android:layout_height="match_parent"
+
                 android:layout_gravity="center_horizontal"
               />
+
         </androidx.cardview.widget.CardView>
 
 

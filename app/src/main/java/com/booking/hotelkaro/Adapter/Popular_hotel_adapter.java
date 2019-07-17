@@ -44,12 +44,16 @@ public class Popular_hotel_adapter extends RecyclerView.Adapter<Popular_hotel_ad
 //        myViewHolder.imageView.setImageResource(R.drawable.ic_launcher_background);
 
 
-        PopularHotels trending_hotels = hotelList.get(i);
+        PopularHotels popularHotels = hotelList.get(i);
       //  myViewHolder.about.setText(trending_hotels.getAbout());
 
 //UniversalImageLoader.setImage(hotel.getImg(),myViewHolder.imageView,null,"https://");
-        myViewHolder.imageView.setImageResource(trending_hotels.getImg_demo());
-
+        myViewHolder.imageView.setImageResource(popularHotels.getImg_demo());
+myViewHolder.address.setText(popularHotels.getAddress());
+        myViewHolder.rating.setText(popularHotels.getRating());
+        myViewHolder.hotel_name.setText(popularHotels.getHotel_name());
+        myViewHolder.type.setText(popularHotels.getType());
+        myViewHolder.price.setText(popularHotels.getPrice());
 
     }
 
@@ -62,16 +66,19 @@ public class Popular_hotel_adapter extends RecyclerView.Adapter<Popular_hotel_ad
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
-        TextView about;
-TextView hotel_name;
+        TextView address,hotel_name,type,rating,price;
+
         ImageView imageView;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            about = itemView.findViewById(R.id.txt_abt_hotel);
+            address = itemView.findViewById(R.id.txt_address);
             imageView = itemView.findViewById(R.id.img_hotel);
-
+            hotel_name = itemView.findViewById(R.id.txt_hotelname);
+            type = itemView.findViewById(R.id.txt_hoteltype);
+            rating = itemView.findViewById(R.id.txt_rating);
+            price = itemView.findViewById(R.id.price);
         }
 
 

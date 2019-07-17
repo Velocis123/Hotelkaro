@@ -26,22 +26,36 @@
                 android:layout_height="@dimen/_180sdp">
 
 
-
                 <ImageView
                     android:id="@+id/img_hotel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_2sdp"
-                    app:srcCompat="@drawable/hotel_wall"
-                    android:scaleType="fitXY" />
+                    android:layout_alignStart="@+id/len1"
+                    android:layout_alignTop="@+id/len1"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/hotel_wall" />
                 <ImageView
                     android:id="@+id/img_back"
                     android:padding="@dimen/_10sdp"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:src="@drawable/ic_arrow_back_white_24dp"/>
-
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_30sdp"
+    android:layout_gravity="bottom"
+    >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="33 photos"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/avenirltstd_light"
+                    />
+</RelativeLayout>
             </FrameLayout>
 
 

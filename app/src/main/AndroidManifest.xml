@@ -14,15 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.Invite_Earn"></activity>
+        <activity android:name=".Activity.Profile"></activity>
+        <activity android:name=".Activity.Invite_Earn" />
         <activity android:name=".Activity.CityLocation" />
         <activity android:name=".Activity.FindingLocation" />
         <activity android:name=".Activity.Login_verification" />
         <activity android:name=".Activity.Login" />
         <activity android:name=".Activity.HotelDescription" />
         <activity android:name=".Activity.NoOfPerson" />
-        <activity android:name=".Activity.MainActivity"></activity>
-        <activity android:name=".Activity.Hotel_images"/>
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.Hotel_images" />
         <activity android:name=".Activity.Search" />
         <activity
             android:name=".Activity.Splash"
