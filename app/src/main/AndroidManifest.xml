@@ -25,6 +25,7 @@
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.Hotel_images" />
         <activity android:name=".Activity.Search" />
+        <activity android:name=".Activity.Map"/>
         <activity
             android:name=".Activity.Splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -35,6 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCt_fsnr8pxBAMhVEnmBwSIY1TFFS-Grgc"/>
+
     </application>
 
 </manifest>

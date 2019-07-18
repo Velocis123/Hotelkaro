@@ -166,53 +166,53 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
         edt_searchbar.setText(value);
 
         get_amenities();
-        // get_hotels();
-        getCity_hotels();
+        get_hotels();
+        //getCity_hotels();
 
     }
 
-    private void getCity_hotels(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Api.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        ApiService service = retrofit.create(ApiService.class);
+//    private void getCity_hotels(){
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(Api.BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        ApiService service = retrofit.create(ApiService.class);
+//
+//        Call<List<Hotel_list>> call = service.getHotelList("hpt@2019",id,"");
+//
+//        call.enqueue(new Callback<List<Hotel_list>>() {
+//            @Override
+//            public void onResponse(Call<List<Hotel_list>> call, retrofit2.Response<List<Hotel_list>> response) {
+//                //arrayList.add(response);
+//
+//                List<Hotel_list> list=response.body();
+//
+//               set_cities_adapter(list);
+//                Toast.makeText(Search.this,"SUCCESS",Toast.LENGTH_LONG).show();
+//
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Hotel_list>> call, Throwable t) {
+//                Toast.makeText(Search.this,t.getMessage(),Toast.LENGTH_LONG).show();
+//            }
+//        });
+//
+//
+//
+//
+//
+//
+//
+//    }
 
-        Call<List<Hotel_list>> call = service.getHotelList("hpt@2019",id,"");
-
-        call.enqueue(new Callback<List<Hotel_list>>() {
-            @Override
-            public void onResponse(Call<List<Hotel_list>> call, retrofit2.Response<List<Hotel_list>> response) {
-                //arrayList.add(response);
-
-                List<Hotel_list> list=response.body();
-
-               set_cities_adapter(list);
-                Toast.makeText(Search.this,"SUCCESS",Toast.LENGTH_LONG).show();
-
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Hotel_list>> call, Throwable t) {
-                Toast.makeText(Search.this,t.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-
-
-
-
-
-    }
-
-    private void set_cities_adapter (List<Hotel_list> list){
+    private void set_cities_adapter (List<Hotel> list){
 
 
         HotelSearchAdapter adapter = new HotelSearchAdapter(Search.this, list, amenities, new OnHotelListener() {
             @Override
-            public void onItemClick(Hotel_list item) {
+            public void onItemClick(Hotel item) {
                 Intent intent = new Intent(Search.this, HotelDescription.class);
                 intent.putExtra("MODEL", item);
                 startActivity(intent);
@@ -262,47 +262,47 @@ sharedPreferences = getSharedPreferences("roomdata",MODE_PRIVATE);
 
     }
 
-//    public void get_hotels() {
-//        recyclerView = findViewById(R.id.recycle);
-//
-//
-//        Hotel hotel1 = new Hotel("", "Lemon Tree Premier",
-//                "3.5", "5",
-//                "34444", "5555",
-//                "Excellent", R.drawable.lamontree, integerList);
-//
-//        Hotel hotel2 = new Hotel("", "Promenage",
-//                "4.5", "10",
-//                "344", "4555",
-//                "Excellent", R.drawable.promenade, integerList);
-//        Hotel hotel3 = new Hotel("", "Ashoka Hotel",
-//                "2.5", "8",
-//                "300", "3555",
-//                "Good", R.drawable.ashoka, integerList);
-//
-//        Hotel hotel4 = new Hotel("", "Welcome Hotel",
-//                "1.5", "5",
-//                "100", "2555",
-//                "Poor", R.drawable.wlcome, integerList);
-//
-//        list.add(hotel1);
-//        list.add(hotel2);
-//        list.add(hotel3);
-//        list.add(hotel4);
-//
-//        HotelSearchAdapter adapter = new HotelSearchAdapter(Search.this, list, amenities, new OnHotelListener() {
-//            @Override
-//            public void onItemClick(Hotel item) {
-//                Intent intent = new Intent(Search.this, HotelDescription.class);
-//                intent.putExtra("MODEL", item);
-//                startActivity(intent);
-//
-//            }
-//        });
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
-//        recyclerView.setAdapter(adapter);
-//
-//    }
+    public void get_hotels() {
+        recyclerView = findViewById(R.id.recycle);
+
+
+        Hotel hotel1 = new Hotel("", "Lemon Tree Premier",
+                "3.5", "5",
+                "34444", "5555",
+                "Excellent", R.drawable.lamontree, integerList);
+
+        Hotel hotel2 = new Hotel("", "Promenage",
+                "4.5", "10",
+                "344", "4555",
+                "Excellent", R.drawable.promenade, integerList);
+        Hotel hotel3 = new Hotel("", "Ashoka Hotel",
+                "2.5", "8",
+                "300", "3555",
+                "Good", R.drawable.ashoka, integerList);
+
+        Hotel hotel4 = new Hotel("", "Welcome Hotel",
+                "1.5", "5",
+                "100", "2555",
+                "Poor", R.drawable.wlcome, integerList);
+
+        list.add(hotel1);
+        list.add(hotel2);
+        list.add(hotel3);
+        list.add(hotel4);
+
+        HotelSearchAdapter adapter = new HotelSearchAdapter(Search.this, list, amenities, new OnHotelListener() {
+            @Override
+            public void onItemClick(Hotel item) {
+                Intent intent = new Intent(Search.this, HotelDescription.class);
+                intent.putExtra("MODEL", item);
+                startActivity(intent);
+
+            }
+        });
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
+        recyclerView.setAdapter(adapter);
+
+    }
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {

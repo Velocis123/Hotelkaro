@@ -25,11 +25,11 @@ import java.util.List;
 public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Hotel_list> hotelList;
+    private List<Hotel> hotelList;
     private List<Amenities> amenities;
     private OnHotelListener listener;
 
-    public HotelSearchAdapter(Context mContext, List<Hotel_list> hotelList, List<Amenities> amenities, OnHotelListener listener) {
+    public HotelSearchAdapter(Context mContext, List<Hotel> hotelList, List<Amenities> amenities, OnHotelListener listener) {
         this.mContext = mContext;
         this.hotelList = hotelList;
         this.amenities = amenities;
@@ -56,12 +56,12 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
         myViewHolder.bind(hotelList.get(i), listener);
 
 
-        Hotel_list hotel = hotelList.get(i);
+        Hotel hotel = hotelList.get(i);
 
 
 
 
-        myViewHolder.hotel_name.setText(hotel.getName());
+        myViewHolder.hotel_name.setText(hotel.getHotel_name());
 
         myViewHolder.reviews.setText( " reviews");
 
@@ -71,9 +71,9 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
       //  myViewHolder.ratingBar.setRating(2.5f);
         ImageRecyclerAdapter imageRecyclerAdapter = new ImageRecyclerAdapter(mContext, hotelList, new OnHotelListener() {
             @Override
-            public void onItemClick(Hotel_list item) {
+            public void onItemClick(Hotel item) {
                 Intent intent = new Intent(mContext, HotelDescription.class);
-                //intent.putExtra("MODEL", item);
+                intent.putExtra("MODEL", item);
                 mContext.startActivity(intent);
             }
         });
@@ -119,7 +119,7 @@ public class HotelSearchAdapter extends RecyclerView.Adapter<HotelSearchAdapter.
 
         }
 
-        public void bind(final Hotel_list hotel, final OnHotelListener listener) {
+        public void bind(final Hotel hotel, final OnHotelListener listener) {
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

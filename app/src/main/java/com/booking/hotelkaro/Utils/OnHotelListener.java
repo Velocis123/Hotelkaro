@@ -5,5 +5,5 @@ import com.booking.hotelkaro.Model.Hotel_list;
 
 public interface OnHotelListener {
 
-    void onItemClick(Hotel_list item);
+    void onItemClick(Hotel item);
 }
