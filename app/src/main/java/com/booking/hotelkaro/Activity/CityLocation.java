@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
@@ -26,13 +28,16 @@ import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.booking.hotelkaro.API.Api;
 import com.booking.hotelkaro.API.ApiService;
+import com.booking.hotelkaro.Adapter.LocationAdapter;
 import com.booking.hotelkaro.Model.Cities_Main;
 import com.booking.hotelkaro.Model.CityModel;
+import com.booking.hotelkaro.Model.LocationModel;
 import com.booking.hotelkaro.R;
 import com.booking.hotelkaro.Utils.Datepickerfragment;
 import com.google.android.gms.common.ConnectionResult;
@@ -47,6 +52,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.nostra13.universalimageloader.utils.L;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -83,11 +89,12 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
     StringBuilder sb;
     String result;
     EditText edt_searchbox;
-    ImageView img_search,img_back;
-    String id ;
-    TextView in,indate,out,outdate,indays,room,roomval;
+    ImageView img_search, img_back;
+    String id;
+    TextView in, indate, out, outdate, indays, room, roomval;
     static int DATE_DIALOG = 0;
     public static final String DATE_FORMAT = "d/M/yyyy";
+    private RecyclerView recyclerView_location;
 
 
     @Override
@@ -100,24 +107,26 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
                 .addApi(LocationServices.API)
                 .build();
 
-        mLocationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+        mLocationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         sb = new StringBuilder();
         checkLocation(); //check whether location service is enable or not in your  phone
 
 
-        edt_searchbox  = findViewById(R.id.edt_searchtext);
+        edt_searchbox = findViewById(R.id.edt_searchtext);
         img_search = findViewById(R.id.img_search);
-        img_back= findViewById(R.id.img_back);
-        flag=super.getIntent().getExtras().getString("flag");
-cities_main = (CityModel)super.getIntent().getExtras().get("MODEL");
+        img_back = findViewById(R.id.img_back);
+        flag = super.getIntent().getExtras().getString("flag");
+        cities_main = (CityModel) super.getIntent().getExtras().get("MODEL");
+        recyclerView_location = findViewById(R.id.recycler_loc);
 
-        in=findViewById(R.id.in);
-        indate=findViewById(R.id.indate);
-        out=findViewById(R.id.out);
-        outdate=findViewById(R.id.outdate);
-        indays=findViewById(R.id.indays);
-        room=findViewById(R.id.room);
-        roomval=findViewById(R.id.roomval);
+
+        in = findViewById(R.id.in);
+        indate = findViewById(R.id.indate);
+        out = findViewById(R.id.out);
+        outdate = findViewById(R.id.outdate);
+        indays = findViewById(R.id.indays);
+        room = findViewById(R.id.room);
+        roomval = findViewById(R.id.roomval);
 
 
         in.setOnClickListener(this);
@@ -125,23 +134,25 @@ cities_main = (CityModel)super.getIntent().getExtras().get("MODEL");
         room.setOnClickListener(this);
 
 
-        if(flag.equals("c"))
-        {
+        if (flag.equals("c")) {
 //          cities_main=(Cities_Main) super.getIntent().getExtras().get("id");
 
-         //show layout
+            //show layout
 //            if (edt_searchbox.requestFocus() == true){
 //
-              edt_searchbox.setText("Where in " + cities_main.getName() + "?");
+            edt_searchbox.setText("Where in " + cities_main.getName() + "?");
+
+
+            getLocationFromCityId(cities_main.getId());
+
+
 
 //
 //
 //            }
 
 
-        }
-        else if (flag.equals("s"))
-        {
+        } else if (flag.equals("s")) {
             edt_searchbox.requestFocus();
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
             //open key here and set focus
@@ -150,36 +161,34 @@ cities_main = (CityModel)super.getIntent().getExtras().get("MODEL");
 
         }
 
-            edt_searchbox.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        edt_searchbox.setText("");
-    }
-});
+        edt_searchbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edt_searchbox.setText("");
+            }
+        });
 
-            img_search.setOnClickListener(new View.OnClickListener() {
+        img_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String get_search;
 
                 get_search = edt_searchbox.getText().toString();
 
-                Intent intent = new Intent(CityLocation.this,Search.class);
-                intent.putExtra("SEARCH_CONTENT",get_search);
-               intent.putExtra("MODEL",cities_main);
+                Intent intent = new Intent(CityLocation.this, Search.class);
+                intent.putExtra("SEARCH_CONTENT", get_search);
+                intent.putExtra("MODEL", cities_main);
                 startActivity(intent);
-
-
 
 
             }
         });
-            img_back.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        onBackPressed();
-    }
-});
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -200,7 +209,7 @@ cities_main = (CityModel)super.getIntent().getExtras().get("MODEL");
 
         mLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
 
-        if(mLocation == null){
+        if (mLocation == null) {
             startLocationUpdates();
         }
         if (mLocation != null) {
@@ -268,10 +277,10 @@ cities_main = (CityModel)super.getIntent().getExtras().get("MODEL");
                 Double.toString(location.getLatitude()) + "," +
                 Double.toString(location.getLongitude());
 
-       // Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-        flag=super.getIntent().getExtras().getString("flag");
+        // Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        flag = super.getIntent().getExtras().getString("flag");
 
-        Geocoder geocoder=new Geocoder(this);
+        Geocoder geocoder = new Geocoder(this);
         try {
 
 
@@ -283,24 +292,22 @@ cities_main = (CityModel)super.getIntent().getExtras().get("MODEL");
                 for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
                     sb.append(address.getAddressLine(i)).append("\n");
                 }
-               state = address.getLocality();
+                state = address.getLocality();
                 locality = address.getSubLocality();
 //               sb.append(address.getLocality()).append("\n");
 //                sb.append(address.getPostalCode()).append("\n");
 //                sb.append(address.getCountryName());
-              result = sb.toString();
-if (flag.equals("map")){
+                result = sb.toString();
+                if (flag.equals("map")) {
 
-    edt_searchbox.setText(state + "," + locality);
+                    edt_searchbox.setText(state + "," + locality);
 
-}
-               // Toast.makeText(this,result,Toast.LENGTH_LONG).show();
+                }
+                // Toast.makeText(this,result,Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
             Log.e(TAG, "Unable connect to Geocoder", e);
         } finally {
-
-
 
 
         }
@@ -308,7 +315,7 @@ if (flag.equals("map")){
     }
 
     private boolean checkLocation() {
-        if(!isLocationEnabled())
+        if (!isLocationEnabled())
             showAlert();
         return isLocationEnabled();
     }
@@ -343,8 +350,7 @@ if (flag.equals("map")){
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.in:
                 DATE_DIALOG = 1;
                 DialogFragment datePicker = new Datepickerfragment();
@@ -352,7 +358,7 @@ if (flag.equals("map")){
                 break;
 
             case R.id.out:
-               DATE_DIALOG = 2;
+                DATE_DIALOG = 2;
                 DialogFragment datePicker1 = new Datepickerfragment();
                 datePicker1.show(getSupportFragmentManager(), "date picker checkout");
                 break;
@@ -378,34 +384,29 @@ if (flag.equals("map")){
                     (year));
         }
 
-        long days= getDaysBetweenDates(in.getText().toString(),out.getText().toString());
-        if(days<0)
-        {
+        long days = getDaysBetweenDates(in.getText().toString(), out.getText().toString());
+        if (days < 0) {
 
             in.setText("Today");
             out.setText("Tomorrow");
-            Toast.makeText(this,"Invalid Date",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Invalid Date", Toast.LENGTH_LONG).show();
 
+        } else if (days == 0) {
+            indays.setText("" + 1 + "N");
+        } else {
+            indays.setText("" + days + "N");
         }
-        else if(days==0)
-        {
-            indays.setText("" + 1+"N");
-        }
-        else {
-            indays.setText("" + days+"N");
-        }
-;
+        ;
     }
 
     public static long getDaysBetweenDates(String start, String end) {
 
-         if(start.equals("Today"))
-         {
-             SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
-             Date todayDate = new Date();
-           start= currentDate.format(todayDate);
-         }if(end.equals("Tomorrow"))
-        {
+        if (start.equals("Today")) {
+            SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+            Date todayDate = new Date();
+            start = currentDate.format(todayDate);
+        }
+        if (end.equals("Tomorrow")) {
             SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
             Date todayDate = new Date();
             end = currentDate.format(todayDate);
@@ -425,8 +426,71 @@ if (flag.equals("map")){
 
         return numberOfDays;
     }
+
     private static long getUnitBetweenDates(Date startDate, Date endDate, TimeUnit unit) {
         long timeDiff = endDate.getTime() - startDate.getTime();
         return unit.convert(timeDiff, TimeUnit.MILLISECONDS);
+    }
+
+
+    public void getLocationFromCityId(String id) {
+
+
+
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(Api.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+    ApiService service = retrofit.create(ApiService.class);
+
+    Call<List<LocationModel>> call = service.getLocality("hpt@2019", cities_main.getId());
+
+    //Call<List<CityModel>> call = service.getcities("hpt@2019");
+
+
+
+
+
+        call.enqueue(new Callback<List<LocationModel>>() {
+        @Override
+        public void onResponse(Call<List<LocationModel>> call, retrofit2.Response<List<LocationModel>> response) {
+            //arrayList.add(response);
+
+            List<LocationModel> list=response.body();
+
+
+            Toast.makeText(CityLocation.this,""+list.size(), Toast.LENGTH_LONG).show();
+            set_location_adapter(list);
+            //Toast.makeText(MainActivity.this,"Success",Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onFailure(Call<List<LocationModel>> call, Throwable t) {
+            Toast.makeText(CityLocation.this,t.getMessage(),Toast.LENGTH_LONG).show();
+        }
+    });
+
+
+
+
+
+
+
+
+}
+
+
+    private void set_location_adapter (List<LocationModel> list){
+
+
+
+        LocationAdapter adapter = new LocationAdapter(CityLocation.this,list);
+        recyclerView_location.setLayoutManager(new LinearLayoutManager(this, LinearLayout.HORIZONTAL,false));
+        recyclerView_location.setAdapter(adapter);
+
+
+
+
     }
 }
