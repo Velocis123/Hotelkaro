@@ -104,12 +104,6 @@ private ImageView cross;
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        rooms.clear();
-    }
-
-    @Override
     public void onClick(View v) {
 
 
@@ -152,5 +146,12 @@ private ImageView cross;
 
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        rooms.clear();
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 }

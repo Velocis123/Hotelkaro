@@ -2,6 +2,7 @@ package com.booking.hotelkaro.API;
 
 
 import com.booking.hotelkaro.Model.Cities_Main;
+import com.booking.hotelkaro.Model.CityModel;
 import com.booking.hotelkaro.Model.Hotel_list;
 import com.booking.hotelkaro.Model.OTPModel;
 
@@ -17,7 +18,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("Api_mobile/popularcity")
-    Call<List<Cities_Main>> getcities(
+    Call<List<CityModel>> getcities(
             @Field("accesskey") String accesskey
     );
 

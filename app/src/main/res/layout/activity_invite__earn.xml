@@ -188,7 +188,7 @@ android:layout_marginLeft="@dimen/_10sdp"
         android:layout_width="@dimen/_60sdp"
         android:layout_height="match_parent"
 android:layout_marginLeft="@dimen/_10sdp"
-android:src="@drawable/messenger_logo"
+android:src="@drawable/ic_action_cross"
         />
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="@dimen/_60sdp"

@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.booking.hotelkaro.API.Api;
 import com.booking.hotelkaro.API.ApiService;
 import com.booking.hotelkaro.Model.Cities_Main;
+import com.booking.hotelkaro.Model.CityModel;
 import com.booking.hotelkaro.R;
 import com.booking.hotelkaro.Utils.Datepickerfragment;
 import com.google.android.gms.common.ConnectionResult;
@@ -74,7 +75,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
     private com.google.android.gms.location.LocationListener listener;
     private long UPDATE_INTERVAL = 2 * 1000;  /* 10 secs */
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
-    Cities_Main cities_main;
+    CityModel cities_main;
     private LocationManager locationManager;
     private String state;
     private String locality;
@@ -108,7 +109,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
         img_search = findViewById(R.id.img_search);
         img_back= findViewById(R.id.img_back);
         flag=super.getIntent().getExtras().getString("flag");
-cities_main = (Cities_Main)super.getIntent().getExtras().get("MODEL");
+cities_main = (CityModel)super.getIntent().getExtras().get("MODEL");
 
         in=findViewById(R.id.in);
         indate=findViewById(R.id.indate);
@@ -131,7 +132,7 @@ cities_main = (Cities_Main)super.getIntent().getExtras().get("MODEL");
          //show layout
 //            if (edt_searchbox.requestFocus() == true){
 //
-              edt_searchbox.setText("Where in " + cities_main.getHomecity_name() + "?");
+              edt_searchbox.setText("Where in " + cities_main.getName() + "?");
 
 //
 //

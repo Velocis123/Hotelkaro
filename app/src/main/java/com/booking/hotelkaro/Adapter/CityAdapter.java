@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ import com.booking.hotelkaro.Activity.Map;
 import com.booking.hotelkaro.Model.Cities;
 
 import com.booking.hotelkaro.Model.Cities_Main;
+import com.booking.hotelkaro.Model.CityModel;
 import com.booking.hotelkaro.R;
 import com.booking.hotelkaro.Utils.UniversalImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -35,11 +38,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CityAdapter extends   RecyclerView.Adapter<CityAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Cities_Main> cityList;
+    private List<CityModel> cityList;
     int postion;
-    Cities_Main pos;
+    CityModel pos;
 
-    public CityAdapter(Context mContext, List<Cities_Main> cityList) {
+    public CityAdapter(Context mContext, List<CityModel> cityList) {
         this.mContext = mContext;
         this.cityList = cityList;
     }
@@ -67,7 +70,7 @@ public class CityAdapter extends   RecyclerView.Adapter<CityAdapter.MyViewHolder
         ImageLoader.getInstance().init(universalImageLoader.getConfig());
 
 
-        Cities_Main cities =cityList.get(i);
+        CityModel cities =cityList.get(i);
         postion=myViewHolder.getAdapterPosition();
         myViewHolder.img_city.setTag(postion);
 
@@ -76,19 +79,21 @@ public class CityAdapter extends   RecyclerView.Adapter<CityAdapter.MyViewHolder
 
         if (i==0){
 
-            myViewHolder.img_city.setImageResource(cities.getCity_demo());
+            //myViewHolder.img_city.setImageResource(cities.getCity_demo());
 
         }
         else
         {
-            UniversalImageLoader.setImage(cities.getHomecity_bgimg_link(),myViewHolder.img_city,null, Api.BASE_URL);
+            UniversalImageLoader.setImage(cities.getImage(),myViewHolder.img_city,null, Api.BASE_URL);
         }
 
 
 
 //        myViewHolder.img_city.setImageResource(cities.getCity_demo());
 
-        myViewHolder.txt_city.setText(cities.getHomecity_name());
+        myViewHolder.txt_city.setText(cities.getName());
+
+        Log.i("cityname",cities.getName());
 
 
 
@@ -114,7 +119,7 @@ public class CityAdapter extends   RecyclerView.Adapter<CityAdapter.MyViewHolder
 //
 //                }
 
-                Cities_Main city=cityList.get(pos);
+                CityModel city=cityList.get(pos);
 
                 Intent intent=new Intent(mContext, CityLocation.class);
                 intent.putExtra("flag","c");

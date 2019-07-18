@@ -40,6 +40,7 @@ import com.booking.hotelkaro.Adapter.Trending_hotel_adapter;
 import com.booking.hotelkaro.Model.Amenities;
 import com.booking.hotelkaro.Model.Cities;
 import com.booking.hotelkaro.Model.Cities_Main;
+import com.booking.hotelkaro.Model.CityModel;
 import com.booking.hotelkaro.Model.Hotel;
 import com.booking.hotelkaro.Model.OffersModel;
 import com.booking.hotelkaro.Model.PopularHotels;
@@ -394,20 +395,20 @@ profile.setOnClickListener(new View.OnClickListener() {
                 .build();
         ApiService service = retrofit.create(ApiService.class);
 
-        Call<List<Cities_Main>> call = service.getcities("hpt@2019");
+        Call<List<CityModel>> call = service.getcities("hpt@2019");
 
-        call.enqueue(new Callback<List<Cities_Main>>() {
+        call.enqueue(new Callback<List<CityModel>>() {
             @Override
-            public void onResponse(Call<List<Cities_Main>> call, retrofit2.Response<List<Cities_Main>> response) {
+            public void onResponse(Call<List<CityModel>> call, retrofit2.Response<List<CityModel>> response) {
                 //arrayList.add(response);
 
-                List<Cities_Main> list=response.body();
+                List<CityModel> list=response.body();
                 set_cities_adapter(list);
                 //Toast.makeText(MainActivity.this,"Success",Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onFailure(Call<List<Cities_Main>> call, Throwable t) {
+            public void onFailure(Call<List<CityModel>> call, Throwable t) {
                 Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
@@ -420,7 +421,7 @@ profile.setOnClickListener(new View.OnClickListener() {
 
 
     }
-    private void set_cities_adapter (List<Cities_Main> list){
+    private void set_cities_adapter (List<CityModel> list){
 
 
 
