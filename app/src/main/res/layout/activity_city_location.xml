@@ -664,10 +664,10 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_400sdp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_all"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:id="@+id/recycler_loc"
+                android:id="@+id/recycler_locc"
                 >
 
 

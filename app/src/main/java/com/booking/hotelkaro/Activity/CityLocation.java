@@ -94,7 +94,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
     TextView in, indate, out, outdate, indays, room, roomval;
     static int DATE_DIALOG = 0;
     public static final String DATE_FORMAT = "d/M/yyyy";
-    private RecyclerView recyclerView_location;
+    private RecyclerView  recyclerView_location;
 
 
     @Override
@@ -117,7 +117,7 @@ public class CityLocation extends AppCompatActivity implements  GoogleApiClient.
         img_back = findViewById(R.id.img_back);
         flag = super.getIntent().getExtras().getString("flag");
         cities_main = (CityModel) super.getIntent().getExtras().get("MODEL");
-        recyclerView_location = findViewById(R.id.recycler_loc);
+        recyclerView_location = findViewById(R.id.recycler_locc);
 
 
         in = findViewById(R.id.in);

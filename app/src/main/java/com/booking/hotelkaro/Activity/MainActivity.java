@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<OffersModel.Bus> busList;
     RecyclerView recyclerOffer;
     Context context = MainActivity.this;
-Cities_Main cities_main;
+CityModel cities_main;
 private String PREF_FIRST = "FIRST";
 SharedPreferences sharedPreferences;
 
@@ -92,7 +92,7 @@ SharedPreferences sharedPreferences;
         profile = findViewById(R.id.profile);
 sharedPreferences = getSharedPreferences(PREF_FIRST,MODE_PRIVATE);
         search = findViewById(R.id.edt_search_home);
-        cities_main = new Cities_Main(0,"","","","","","","");
+        cities_main = new CityModel("","","");
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
